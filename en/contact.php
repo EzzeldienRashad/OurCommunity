@@ -46,7 +46,7 @@
 <body>
 <header>
         <div class="logo-header">
-            <img src="../images/mainImages/logo.webp" alt="consolcit-logo" width="150" height="120" />
+            <img src="../images/mainImages/logo.webp" alt="OurCommunity-logo" width="150" height="120" />
             <h1>
                 OurCommunity
                 <br />

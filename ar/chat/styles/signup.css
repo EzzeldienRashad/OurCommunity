@@ -1,0 +1,155 @@
+﻿/****************** General Styles *******************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lemonchiffon;
+}
+
+a {
+    text-decoration: none;
+}
+main {
+    width: 400px;
+    margin: 30px auto 60px;
+    font-family: 'Lusitana', serif;
+}
+/****************** signup form *******************/
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    text-align: center;
+    background-image: linear-gradient(to right, red 0%, green 50%, blue 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form {
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 2px 2px grey;
+}
+h2 {
+    margin: 5px;
+    font-size: 30px;
+    font-family: Georgia, serif;
+}
+.header-note {
+    display: block;
+    color: slategrey;
+    text-align: center;
+}
+hr {
+    border-color: ghostwhite;
+}
+form {
+    text-align: center;
+}
+input {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+input::placeholder {
+    color: darkslategrey;
+}
+progress::-moz-progress-bar {
+    background-color: var(--progress-color);
+}
+progress::-webkit-progress-value {
+    background-color: var(--progress-color);
+}
+progress {
+    color: var(--progress-color);
+    position: absolute;
+    top: 50px;
+    right: 20px;
+}
+.submit {
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+.submit:hover {
+    background-color: darkgreen;
+}
+input:focus {
+    outline: solid lemonchiffon 3px;
+    box-shadow: 0 0 5px 5px lemonchiffon;
+}
+input:focus::placeholder {
+    color: lightgrey;
+}
+.password-cont {
+    position: relative;
+}
+.password-eye {
+	position: absolute;
+	top: -5px;
+	right: 10px;
+	font-size: 30px;
+	cursor: pointer;
+}
+.err {
+    color: red;
+    font-size: 15px;
+    text-align: left;
+}
+.login-redirect {
+    color: royalblue;
+    font-size: 18px;
+}
+/****************** footer *******************/
+footer a {
+    margin: 10px;
+    color: grey;
+}
+footer {
+    background-color: white;
+    padding: 10px;
+    color: grey;
+}
+/****************** other devices *******************/
+@media only screen and (max-width: 500px) {
+
+    main {
+        width: 300px;
+        margin: 20px auto;
+    }
+    .form {
+        padding: 10px;
+    }
+    input {
+        padding: 5px;
+        margin: 10px 0;
+        font-size: 15px;
+        border-radius: 5px;
+    }
+    input:focus {
+        outline: solid lemonchiffon 1px;
+        box-shadow: 0 0 2px 2px lemonchiffon;
+    }
+    progress {
+        width: 120px;
+    }
+    .form a {
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    footer a {
+        margin: 5px;
+    }
+    footer {
+        padding: 5px;
+    }
+}

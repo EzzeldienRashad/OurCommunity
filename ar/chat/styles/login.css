@@ -1,0 +1,143 @@
+/****************** General Styles *******************/
+* {
+	box-sizing: border-box;
+}
+body {
+	background-color: lemonchiffon;
+}
+a {
+	text-decoration: none;
+}
+main {
+	width: 400px;
+	margin: 30px auto 60px;
+	font-family: 'Lusitana', serif;
+}
+/****************** login form *******************/
+h1 {
+	font-family: 'Lobster', cursive;
+	font-size: 40px;
+	text-align: center;
+	background-image: linear-gradient(to right, red 0%, green 50%, blue 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.form {
+	border-radius: 5px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	box-shadow: 0 0 2px 2px grey;
+}
+input:not([type="checkbox"]) {
+	padding: 10px;
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+	font-size: 20px;
+	border-radius: 20px;
+}
+.remember-div {
+	text-align: left;
+}
+input::placeholder {
+	color: darkslategrey;
+}
+input:focus {
+	outline: solid lemonchiffon 3px;
+	box-shadow: 0 0 5px 5px lemonchiffon;
+}
+input:focus::placeholder {
+	color: lightgrey;
+}
+.password-cont {
+	position: relative;
+}
+.password-eye {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 30px;
+	cursor: pointer;
+}
+.err {
+	color: red;
+	font-size: 15px;
+	text-align: left;
+}
+.submit {
+	background-color: orange;
+	cursor: pointer;
+}
+.submit:hover {
+	background-color: darkorange;
+}
+.relative {
+	position: relative;
+}
+hr {
+	border-color: ghostwhite;
+}
+.or {
+	display: inline-block;
+	border-radius: 20px;
+	position: absolute;
+	top: -10px;
+	left: 46%;
+	background-color: white;
+	padding: 0 10px;
+}
+.form a {
+	background-color: green;
+	color: white;
+	font-size: 20px;
+	padding: 10px;
+	border-radius: 10px;
+}
+.form a:hover {
+	background-color: darkgreen;
+}
+/****************** footer *******************/
+footer a {
+	margin: 10px;
+	color: grey;
+}
+footer {
+	background-color: white;
+	padding: 10px;
+	color: grey;
+}
+/****************** other devices *******************/
+@media only screen and (max-width: 500px) {
+	
+	main {
+		width: 300px;
+		margin: 20px auto;
+	}
+	.form {
+		padding: 10px;
+	}
+	input {
+		padding: 5px;
+		margin: 10px 0;
+		font-size: 15px;
+		border-radius: 5px;
+	}
+	input:focus {
+		outline: solid lemonchiffon 1px;
+		box-shadow: 0 0 2px 2px lemonchiffon;
+	}
+	.form a {
+		font-size: 15px;
+		padding: 5px;
+		border-radius: 5px;
+	}
+	footer a {
+		margin: 5px;
+	}
+	footer {
+		padding: 5px;
+	}
+	
+}

@@ -8,8 +8,10 @@
 	<meta name="description" content="OurCommunity website for playing, meeting friends and a lot more">
 	<meta name="keywords" content="community, chat, message friends, meeting, playing games" />
 	<script type="text/javascript" src="scripts/index.js" defer></script>
+	<script type="text/javascript" src="scripts/table.js" defer></script>
 	<link rel="icon" href="../images/mainImages/logo.webp">
 	<link rel="stylesheet" href="styles/index.css" />
+	<link rel="stylesheet" href="styles/table.css" />
 </head>
 <body>
     <header>
@@ -31,7 +33,6 @@
             <a href="index.php">Home</a>
             <span class="disabled">Services</span>
             <a href="about.php">about</a>
-            <a href="users.php">Users</a>
             <a href="contact.php">Contact Us</a>
         </nav>
     </header>
@@ -39,6 +40,10 @@
         <h2> OurCommunity Services </h2>
         <table class="items-table">
             <tbody>
+                <?php
+                include "../functions/loadItems.php";
+                loadItems("services.json", "en", "../");
+                ?>
             </tbody>
         </table>
     </main>

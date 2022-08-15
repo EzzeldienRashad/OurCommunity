@@ -32,7 +32,6 @@
             <a href="index.php">الرئيسية</a>
             <a href="services.php">خدماتنا</a>
             <span class="disabled">عن الموقع</span>
-            <a href="customers.php">المستخدمين</a>
             <a href="contact.php">اتصل بنا</a>
         </nav>
     </header>

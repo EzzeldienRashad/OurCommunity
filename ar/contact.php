@@ -46,7 +46,7 @@
 <body>
     <header>
         <div class="logo-header">
-            <img src="../images/mainImages/logo.webp" alt="consolcit-logo" width="150" height="120" />
+            <img src="../images/mainImages/logo.webp" alt="شعار مجتمعنا" width="150" height="120" />
             <h1>
                 مجتمعنا
                 <br />
@@ -63,7 +63,6 @@
             <a href="index.php">الرئيسية</a>
             <a href="services.php">خدماتنا</a>
             <a href="about.php">عن الموقع</a>
-            <a href="customers.php">المستخدمين</a>
             <span class="disabled">اتصل بنا</span>
         </nav>
     </header>

@@ -1,10 +1,4 @@
 <?php
-/*
-$jsonFile: place of the json file
-$imagesFolder: place of the ../images files
-$isLink: are the items links or just ../images
-$lang: language, either ar or en
-*/
 function loadItems($jsonFile, $lang, $root = "../../") {
     $jsonFile = $root . "arrays/" . $jsonFile;
     $items = json_decode(file_get_contents($jsonFile), true);

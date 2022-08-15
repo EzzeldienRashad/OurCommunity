@@ -49,18 +49,6 @@ main a {
     background-color: #f2f2f2;
     background-image: radial-gradient(#fff 0%, #fff 70%, #eee 100%);
 }
-.green {
-    color:  rgb(255, 95, 11);
-}
-.blue {
-    color: #00b0f0;
-}
-.violet {
-    color: #7030a0;
-}
-.yellow {
-    color: #ffc000;
-}
 header h1 {
     display: inline-block;
     font-size: 22px;
@@ -296,10 +284,6 @@ h1 {
 	transition: max-height 0.2s ease-out;
 	margin-bottom: 10px;
     border-bottom: 1px solid black;
-}
-footer {
-	color: white;
-	background-color: black;
 }
 
 /******************* footer ******************/

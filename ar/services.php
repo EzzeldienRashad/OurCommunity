@@ -8,8 +8,10 @@
 	<meta name="description" content="موقع مجتمعنا للعب ومقابلة اﻷصدقاء وغير ذلك الكثير">
 	<meta name="keywords" content="مجتمع, شات, مراسلة اﻷصدقاء, مجموعات, ألعاب" />
 	<script type="text/javascript" src="scripts/index.js" defer></script>
+	<script type="text/javascript" src="scripts/table.js" defer></script>
 	<link rel="icon" href="../images/mainImages/logo.webp">
 	<link rel="stylesheet" href="styles/index.css" />
+	<link rel="stylesheet" href="styles/table.css" />
 </head>
 <body>
     <header>
@@ -31,14 +33,17 @@
             <a href="index.php">الرئيسية</a>
             <span class="disabled">خدماتنا</span>
             <a href="about.php">عن الموقع</a>
-            <a href="users.php">المستخدمين</a>
             <a href="contact.php">اتصل بنا</a>
         </nav>
     </header>
     <main>
         <h2> خدمات موقع مجتمعنا </h2>
-        <table  class="items-table">
+        <table class="items-table">
             <tbody>
+                <?php
+                include "../functions/loadItems.php";
+                loadItems("services.json", "ar", "../");
+                ?>
             </tbody>
         </table>
     </main>

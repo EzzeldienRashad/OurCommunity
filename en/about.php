@@ -32,7 +32,6 @@
             <a href="index.php">Home</a>
             <a href="services.php">Services</a>
             <span class="disabled">about</span>
-            <a href="customers.php">Users</a>
             <a href="contact.php">Contact Us</a>
         </nav>
     </header>

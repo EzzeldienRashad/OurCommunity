@@ -1,4 +1,5 @@
 //show images correctly on small screens
+let main = document.getElementsByTagName("main")[0];
 let table = document.getElementsByClassName("items-table")[0];
 if (table) {
     if (document.documentElement.offsetWidth <= 560 || 

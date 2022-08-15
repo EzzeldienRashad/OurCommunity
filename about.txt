@@ -1,0 +1,17 @@
+loadItems:
+$jsonFile: place of the json file
+$imagesFolder: place of the ../images files
+$isLink: are the items links or just ../images
+$lang: language, either ar or en
+
+json files:
+hasTitle?
+arName (title)
+enName
+arDescription (under picture)
+enDescription 
+picture (default)
+arPicture
+enPicture
+href
+jsonFile (if it is a link to another page)

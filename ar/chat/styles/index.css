@@ -1,0 +1,205 @@
+﻿/***************** main page contents ******************/
+main {
+    padding: 10px;
+}
+h2 {
+    color: white;
+    background-color: darkgoldenrod;
+    padding: 10px 30px 10px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80%;
+    display: inline-block;
+    margin-bottom: 0;
+}
+.comment span.curve {
+    background-color: darkgoldenrod;
+    display: inline-block;
+    border-top-right-radius: 50%;
+    width: 9%;
+    height: 50.5px;
+    margin-right: 10px;
+    position: relative;
+}
+.comment span.curve i {
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    color: darkred;
+    cursor: pointer;
+}
+.comment div.comment-body {
+    border: 2px solid black;
+    padding: 10px;
+    padding-right: 20px;
+    margin-top: -5px;
+    word-wrap: break-word;
+    color: black;
+    position: relative;
+}
+.fa-heart-circle-plus {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: grey;
+    cursor: pointer;
+}
+.comment {
+    margin-bottom: 10px;
+}
+.comment-time {
+    color: grey;
+    position: relative;
+    bottom: 5px;
+}
+.love-count {
+    color: red;
+}
+.comment-info {
+    display: inline-block;
+}
+.add-comment {
+    background-color: gold;
+    cursor: pointer;
+}
+.add-comment:focus {
+    outline: none;
+}
+.new-comment {
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    transition-duration: 1s;
+    transition-property: height;
+}
+.display-comment-area {
+    height: 130px;
+    padding: 5px;
+}
+.new-comment textarea {
+    width: 80vw;
+    height: 110px;
+    border: 2px solid gold;
+}
+.new-comment textarea:focus {
+    outline: 2px solid darkgoldenrod;
+}
+.add-comment-btn {
+    padding: 35px 30px;
+    cursor: pointer;
+    border: 1px solid deeppink;
+    background-color: orangered;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition-duration: 0.25s;
+}
+.add-comment-btn:hover {
+    background-color: darkred;
+    color: white;
+    border: 1px solid darkviolet;
+}
+.add-c2c {
+    background-color: lightcyan;
+    float: right;
+}
+.c2c-cont {
+    padding: 20px;
+    padding-left: 30px;
+    font-size: 15px;
+}
+.c2c-cont div p {
+    color: darkslategray;
+    padding-left: 20px;
+    margin: 0px;
+}
+.c2c-cont hr {
+    border: 1px solid lightgrey;
+}
+.add-c2c-textarea {
+    border: 3px solid lightgrey;
+    color: darkslategray;
+    width: 80%;
+    font-size: 15px;
+    height: 100px;
+}
+.add-c2c-div {
+    height: 0;
+    overflow: hidden;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+}
+.add-c2c-div-show {
+    height: 110px;
+}
+.add-c2c-div-show .add-c2c-textarea:focus {
+    outline: 1px solid darkslategrey;
+}
+.add-c2c-btn {
+    padding: 10px;
+    color: white;
+    background-color: darkblue;
+    float: right;
+    font-weight: bold;
+}
+.c2c-name {
+    color: red;
+}
+/***************** other devices *****************/
+@media only screen and (max-width: 750px) {
+
+    .add-comment-btn {
+        right: 0;
+    }
+    .comment span.curve i {
+        left: 10px;
+    }
+    .add-c2c-btn {
+        font-size: 13px;
+        padding: 5px;
+    }
+    .add-c2c-textarea {
+        width: 70%;
+    }
+
+}
+@media only screen and (max-width: 600px) {
+
+    main {
+        padding: 5px;
+    }
+    h2 {
+        padding: 5px 15px 5px 5px;
+        font-size: 15px;
+        max-width: calc(100vw - 150px);
+    }
+    .add-comment-btn {
+        padding: 15px 10px;
+    }
+   .comment span.curve {
+        height: 33.3px;
+        width: 6%;
+    }
+    .comment div.comment-body {
+        padding: 5px;
+        padding-right: 20px;
+        font-size: 14px;
+    }
+    .comment {
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+    .comment span.curve i {
+        top: 15px;
+        left: 0;
+    }
+    .add-c2c-btn {
+        font-size: 10px;
+    }
+    .add-c2c-textarea {
+        width: 60%;
+    }
+
+}

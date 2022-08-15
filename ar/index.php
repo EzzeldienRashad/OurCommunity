@@ -23,7 +23,6 @@
             <span class="disabled">الرئيسية</span>
             <a href="services.php">خدماتنا</a>
             <a href="about.php">عن الموقع</a>
-            <a href="users.php">المستخدمين</a>
             <a href="contact.php">اتصل بنا</a>
             <a href="../en" hreflang="en">English</a>
         </nav>
