@@ -1,0 +1,45 @@
+/***************** main page contents ******************/
+h2 {
+    margin-left: 10px;
+}
+
+.user {
+    border-image: repeating-linear-gradient(50deg, yellow 0%, red 5%, yellow 10%);
+    border-width: 10px;
+    border-style: solid;
+    border-image-slice: 1;
+    padding: 20px 10px;
+    font-size: 20px;
+    margin: 10px;
+    transform: rotateX(-90deg);
+    transition-duration: 1s;
+}
+/***************** other devices ******************/
+@media only screen and (max-width: 750px) {
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .user {
+        border-width: 5px;
+        padding: 10px 5px;
+        font-size: 15px;
+        margin: 10px;
+    }
+
+}
+@media only screen and (max-width: 600px) {
+
+    h2 {
+        margin: 5px;
+        font-size: 15px;
+    }
+    .user {
+        border-width: 5px;
+        padding: 5px;
+        font-size: 12px;
+        margin: 5px;
+    }
+
+}

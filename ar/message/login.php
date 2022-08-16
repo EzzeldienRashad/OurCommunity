@@ -1,24 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>OurCommunity login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<meta name="description" content="Login to OurCommunity, a community for meeting friends, sending messages, playing, etc...." />
-	<meta name="author" content="Ezzeldien Rashad" />
-	<meta name="keywords" content="community, chat, message friends, meeting, login, playing games" />
-	<script type="text/javascript" src="scripts/login.js" defer></script>
-	<link rel="icon" href="pictures/community_logo.webp" />
-	<link rel="stylesheet" href="styles/login.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lusitana&display=swap" rel="stylesheet" />
-</head>
-<body>
-<main>
-
 <?php 
+session_start(); 
 // Check if user is already logged in
 if (isset($_SESSION["name"]) && isset($_SESSION["token"])) {
 	$name = $_SESSION["name"];
@@ -28,9 +9,9 @@ if (isset($_SESSION["name"]) && isset($_SESSION["token"])) {
 	$token = $_COOKIE["token"];
 }
 if (isset($name) && isset($token)) {
-	$dsn = "mysql:host=localhost;dbname=epiz_31976759_OurCommunity";
-	$pdo = new PDO($dsn, "epiz_31976759", "xhb1FTZFr4SdTM9");
-	$stmt = $pdo->prepare("SELECT token FROM epiz_31976759_OurCommunity.Users WHERE name = ?");
+	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G");
+	$stmt = $pdo->prepare("SELECT token FROM b16_32390973_OurCommunity.Users WHERE name = ?");
 	$stmt->execute([$name]);
 	$resultToken = $stmt->fetchColumn();
 	if ($resultToken == $token) {
@@ -43,9 +24,9 @@ if (isset($name) && isset($token)) {
 if (isset($_POST["submit"])) {
 	$_SESSION["email"] = $_POST["email"];
 	$_SESSION["password"] = $_POST["password"];
-	$dsn = "mysql:host=localhost;dbname=epiz_31976759_OurCommunity";
-	$pdo = new PDO($dsn, "epiz_31976759", "xhb1FTZFr4SdTM9", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
-	$stmt = $pdo->prepare("SELECT * FROM epiz_31976759_OurCommunity.Users WHERE email = ?");
+	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
+	$stmt = $pdo->prepare("SELECT * FROM b16_32390973_OurCommunity.Users WHERE email = ?");
 	$stmt->execute([$_POST["email"]]);
 	$info = $stmt->fetch();
 	if ($info) {
@@ -53,7 +34,7 @@ if (isset($_POST["submit"])) {
 			$_SESSION["passwordErr"] = True;
 		} else {
 			$token = bin2hex(random_bytes(16));
-			$pdo->query("UPDATE epiz_31976759_OurCommunity.Users SET token = '" . $token . "' WHERE id = " . $info["id"]);
+			$pdo->query("UPDATE b16_32390973_OurCommunity.Users SET token = '" . $token . "' WHERE id = " . $info["id"]);
 			$_SESSION["name"] = $info["name"];
 			$_SESSION["token"] = $token;
 			if (isset($_POST["remember"]) && $_POST["remember"] == "on") {
@@ -67,9 +48,25 @@ if (isset($_POST["submit"])) {
 		$_SESSION["emailErr"] = TRUE;
 	}
 }
-
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>OurCommunity login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="description" content="Login to OurCommunity, a community for meeting friends, sending messages, playing, etc...." />
+	<meta name="author" content="Ezzeldien Rashad" />
+	<meta name="keywords" content="community, chat, message friends, meeting, login, playing games" />
+	<script type="text/javascript" src="scripts/login.js" defer></script>
+	<link rel="icon" href="../../images/mainImages/logo.webp" />
+	<link rel="stylesheet" href="styles/login.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lusitana&display=swap" rel="stylesheet" />
+</head>
+<body>
+<main>
 <h1>OurCommunity</h1>
 <div class="form">
 Log in to OurCommunity<br />

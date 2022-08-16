@@ -1,24 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>OurCommunity groups</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<meta name="author" content="Ezzeldien Rashad" />
-	<meta name="description" content="OurCommunity groups, a community for meeting friends, sending messages, playing, etc....">
-	<meta name="keywords" content="groups, community, chat, message friends, meeting, main page, playing games" />
-	<script type="text/javascript" src="scripts/groups.js" defer></script>
-	<script src="https://kit.fontawesome.com/5cf0e9fc67.js" crossorigin="anonymous"></script>
-	<link rel="icon" href="pictures/community_logo.webp">
-	<link rel="stylesheet" href="styles/groups.css" />
-	<link rel="stylesheet" href="styles/header-footer.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lusitana&display=swap" rel="stylesheet">
-</head>
-<body>
 <?php 
+session_start(); 
 include "header.php";
 //check if user is already in a group
 if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
@@ -29,9 +10,9 @@ if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
 	$groupToken = $_COOKIE["groupToken"];
 }
 if (isset($groupName) && isset($groupToken)) {
-	$dsn = "mysql:host=localhost;dbname=epiz_31976759_OurCommunity";
-	$pdo = new PDO($dsn, "epiz_31976759", "xhb1FTZFr4SdTM9");
-	$stmt = $pdo->prepare("SELECT groupToken FROM epiz_31976759_OurCommunity.Users WHERE groupName = ?");
+	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G");
+	$stmt = $pdo->prepare("SELECT groupToken FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$groupName]);
 	$resultGroupToken = $stmt->fetchColumn();
 	if ($resultGroupToken == $groupToken) {
@@ -49,16 +30,16 @@ if (isset($_POST["signupGroupSubmit"])) {
 	} else if (!preg_match("/^[\w\d\s_]+$/", $_POST["signupGroupName"])) {
 		$_SESSION["signupNameErr"] = "*group name has unallowed characters";
 	} else {
-		$dsn = "mysql:host=localhost;dbname=epiz_31976759_OurCommunity";
-		$pdo = new PDO($dsn, "epiz_31976759", "xhb1FTZFr4SdTM9", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
-		$stmt = $pdo->prepare("SELECT 1 FROM epiz_31976759_OurCommunity.Groups WHERE groupName = ?");
+		$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+		$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
+		$stmt = $pdo->prepare("SELECT 1 FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 		$stmt->execute([$_POST["signupGroupName"]]);
 		$info = $stmt->fetch();
 		if ($info) {
 			$_SESSION["signupNameErr"] = "*group already exists";
 		} else {
 			$token = bin2hex(random_bytes(16));
-            $stmt = $pdo->prepare("INSERT INTO epiz_31976759_OurCommunity.Groups (groupName, groupPassword, groupToken)
+            $stmt = $pdo->prepare("INSERT INTO b16_32390973_OurCommunity.Groups (groupName, groupPassword, groupToken)
             VALUES (?, '" . password_hash($_POST["signupGroupPassword"], PASSWORD_DEFAULT) . "', '" . $token . "')");
             $stmt->execute([$_POST["signupGroupName"]]);
             $_SESSION["groupName"] = $_POST["signupGroupName"];
@@ -72,9 +53,9 @@ if (isset($_POST["signupGroupSubmit"])) {
 }
 //check for errors, then enter group
 if (isset($_POST["loginGroupSubmit"])) {
-	$dsn = "mysql:host=localhost;dbname=epiz_31976759_OurCommunity";
-	$pdo = new PDO($dsn, "epiz_31976759", "xhb1FTZFr4SdTM9", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
-	$stmt = $pdo->prepare("SELECT * FROM epiz_31976759_OurCommunity.Groups WHERE groupName = ?");
+	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
+	$stmt = $pdo->prepare("SELECT * FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$_POST["loginGroupName"]]);
 	$info = $stmt->fetch();
 	if ($info) {
@@ -93,6 +74,47 @@ if (isset($_POST["loginGroupSubmit"])) {
 	}
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>OurCommunity groups</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="author" content="Ezzeldien Rashad" />
+	<meta name="description" content="OurCommunity groups, a community for meeting friends, sending messages, playing, etc....">
+	<meta name="keywords" content="groups, community, chat, message friends, meeting, main page, playing games" />
+	<script type="text/javascript" src="scripts/groups.js" defer></script>
+	<script type="text/javascript" src="scripts/header.js" defer></script>
+	<script src="https://kit.fontawesome.com/5cf0e9fc67.js" crossorigin="anonymous"></script>
+	<link rel="icon" href="../../images/mainImages/logo.webp">
+	<link rel="stylesheet" href="styles/groups.css" />
+	<link rel="stylesheet" href="styles/header-footer.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lusitana&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<span class="decoration"></span>
+<h1>OurCommunity</h1>
+<div class="hello">Hello, <span><?php echo $name; ?></span>!</div>
+<div class="menu">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<div class="dropdown">
+<a href="../">main page</a>
+<a href="users.php">other users</a>
+<a href="users.php?groups=true">groups</a>
+<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+	<input type="submit" name="logout" value="logout" />
+</form>
+<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+	<input type="submit" name="groupLogout" value="Exit group" />
+</form>
+</div>
+</header>
 <main>
 <?php 
 if (isset($_SESSION["signupNameErr"])) { ?>

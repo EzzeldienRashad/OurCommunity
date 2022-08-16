@@ -1,3 +1,4 @@
+solve arabic text problems
 modify <main> min height
 add "delete c2c"
 make groups list searchable and enterable (after entering password for the selected group)

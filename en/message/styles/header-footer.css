@@ -1,0 +1,211 @@
+/***************** general styles ******************/
+* {
+    box-sizing: border-box;
+    font-family: 'Lusitana', serif;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+main {
+    padding-top: 60px;
+    min-height: 300px;
+}
+/***************** header ******************/
+header span.decoration {
+    display: block;
+    height: 10px;
+    background-color: lightcyan;
+    background-image: repeating-linear-gradient(140deg, lightcyan 0%, violet 2%, lightcyan 4%);
+}
+header {
+    background-color: fuchsia;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+	z-index: 1000;
+}
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    display: inline-block;
+    text-align: left;
+    background-image: linear-gradient(to right, red 0%, green 50%, blue 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+.hello {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    font-size: 30px;
+}
+.hello span {
+    font-family: 'Lobster', cursive;
+}
+.menu {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.menu span {
+    border: 3px solid black;
+    display: block;
+    margin: 6px 0;
+    transition-duration: 0.25s;
+}
+.menu:hover span {
+    border-color: white;
+}
+.dropdown {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: ghostwhite;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0;
+    border: none;
+    width: 0;
+    transition-duration: 0.5s;
+    overflow: hidden;
+}
+.display-dropdown {
+    border: 1px dashed grey;
+    width: 200px;
+    padding: 10px;
+}
+.logout input, .dropdown a {
+    background-color: transparent;
+    border: 1px solid black;
+    box-shadow: 0 0 2px 2px grey;
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    transition-duration: 0.25s;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dropdown a:first-child {
+    border-radius: 5px 5px 0 0;
+}
+.logout:last-child input {
+    cursor: pointer;
+    border-radius: 0 0 5px 5px;
+}
+.logout input:hover, .dropdown a:hover {
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 2px 2px white;
+}
+/***************** footer ******************/
+footer a {
+    margin: 10px;
+    color: grey;
+}
+footer {
+    background-color: white;
+    padding: 10px;
+    color: grey;
+}
+/***************** other devices ******************/
+@media only screen and (max-width: 750px) {
+
+    main {
+        padding-top: 50px;
+    }
+    h1 {
+        font-size: 25px;
+    }
+    header {
+        height: 40px;
+    }
+    .hello {
+        font-size: 22px;
+    }
+    .menu {
+        width: 30px;
+        height: 30px;
+    }
+    .menu span {
+        border: 2px solid black;
+        margin: 5px 0;
+    }
+    .dropdown {
+        top: 40px;
+    }
+
+    .display-dropdown {
+        border: 1px dashed grey;
+        width: 170px;
+        padding: 5px;
+    }
+    .logout input, .dropdown a {
+        padding: 5px;
+        font-size: 17px;
+    }
+    footer a {
+        margin: 5px;
+    }
+    footer {
+        padding: 5px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    main {
+        padding-top: 40px;
+    }
+    h1, .hello {
+        font-size: 13px;
+    }
+    .logout input {
+        font-size: 15px;
+    }
+
+    header {
+        height: 30px;
+    }
+    .menu {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+    .menu span {
+        border: 1.5px solid black;
+        margin: 2.5px 0;
+    }
+    .dropdown {
+        top: 30px;
+        right: 5px;
+    }
+    .display-dropdown {
+        width: 120px;
+        padding: 2px;
+        border: 1px solid grey;
+    }
+    .logout input, .dropdown a {
+        padding: 2px;
+        font-size: 13px;
+        box-shadow: 0 0 1px 1px grey;
+    }
+    .logout input:hover, .dropdown a:hover {
+        box-shadow: 0 0 1px 1px white;
+    }
+    footer {
+        font-size: 10px;
+    }
+
+}

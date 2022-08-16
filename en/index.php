@@ -52,7 +52,7 @@
                 <div class="pics-cont">
                     <img src="../images/mainImages/logo.webp" alt="OurCommunity" width="400" height="320" />
                     <img src="../images/mainImages/games.webp" alt="game" width="400" height="320" />
-                    <img src="../images/mainImages/chat.webp" alt="chat" width="400" height="320" />
+                    <img src="../images/mainImages/message.webp" alt="chat" width="400" height="320" />
                     <img src="../images/mainImages/logo.webp" alt="OurCommunity" width="400" height="320" />
                 </div>
             </div>

@@ -1,0 +1,205 @@
+/***************** main page contents ******************/
+* {
+    box-sizing: border-box;
+}
+main {
+    padding: 10px;
+}
+main > *:not(i) {
+    display: block;
+    overflow: hidden;
+}
+main i {
+    cursor: pointer;
+}
+.join-group, .create-group {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    border: 5px dashed white;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    margin-bottom: 10px;
+    height: 40vh;
+}
+.join-group, .enter-form {
+    background-color: deepskyblue;
+    outline: 5px solid deepskyblue;
+}
+.create-group, .show-list {
+    background-color: greenyellow;
+    outline: 5px solid greenyellow;
+}
+.join-group:hover, .enter-form:hover {
+    background-color: blue;
+    outline: 5px solid blue;
+    color: white
+}
+.create-group:hover, .show-list:hover {
+    background-color: green;
+    outline: 5px solid green;
+    color: white;
+}
+span.center {
+    font-size: 80px;
+    font-family: 'Lobster', cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.join-group-method {
+    display: flex;
+    justify-content: space-around;
+}
+.join-group-method button, .join-group-method a {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    margin: 10px 4.7%;
+    border: 5px dashed white;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    color: black;
+    padding: 0;
+}
+.enter-form span, .show-list span {
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.enter-form {
+    background-color: deepskyblue;
+    outline: 5px solid deepskyblue;
+}
+.show-list {
+    background-color: greenyellow;
+    outline: 5px solid greenyellow;
+}
+.join-group:hover {
+    background-color: blue;
+    outline: 5px solid blue;
+    color: white
+}
+.create-group:hover {
+    background-color: green;
+    outline: 5px solid green;
+    color: white;
+}
+.create-group-fields {
+    padding: 0 20px;
+    display: inline-block;
+}
+.join-group-fields {
+    overflow: hidden;
+    padding: 20px 0;
+}
+.password-cont {
+    position: relative;
+    display: inline-block;
+}
+.password-eye {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.err {
+    color: red;
+    font-size: 15px;
+}
+progress::-moz-progress-bar {
+    background-color: var(--progress-color);
+}
+progress::-webkit-progress-value {
+    background-color: var(--progress-color);
+}
+progress {
+    color: var(--progress-color);
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+.signupNameErr, .loginNamePasswordErr {
+    text-align: center;
+    color: darkred;
+    background-color: lightpink;
+}
+/****************** other devices *******************/
+@media only screen and (max-width: 965px) {
+
+    main {
+        padding: 5px;
+    }
+    .join-group, .create-group {
+        border: 3px dashed white;
+        border-radius: 10px;
+        margin-bottom: 6px;
+    }
+    .join-group, .enter-form {
+        outline: 3px solid deepskyblue;
+    }
+    .create-group, .show-list {
+        outline: 3px solid greenyellow;
+    }
+    .join-group:hover, .enter-form:hover {
+        outline: 3px solid blue;
+    }
+    .create-group:hover, .show-list:hover {
+        outline: 3px solid green;
+    }
+    span.center {
+        font-size: 40px;
+    }
+    .join-group-method button, .join-group-method a {
+        margin: 5px 4.7%;
+        border: 3px dashed white;
+        border-radius: 10px;
+    }
+    .join-group-method span {
+        font-size: 25px;
+    }
+    .enter-form {
+        outline: 3px solid deepskyblue;
+    }
+    .show-list {
+        outline: 3px solid greenyellow;
+    }
+    .join-group:hover {
+        outline: 3px solid blue;
+    }
+    .create-group:hover {
+        outline: 3px solid green;
+    }
+    .create-group-fields {
+        padding: 0 10px;
+    }
+    .join-group-fields {
+        padding: 10px 0;
+    }
+    .err {
+        font-size: 12px;
+    }
+
+}
+@media only screen and (max-width: 600px) {
+
+    span.center {
+        font-size: 25px;
+    }
+    .join-group-method span {
+        font-size: 20px;
+    }
+
+}

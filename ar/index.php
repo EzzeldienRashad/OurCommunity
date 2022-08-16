@@ -52,7 +52,7 @@
                 <div class="pics-cont">
                     <img src="../images/mainImages/logo.webp" alt="مجتمعنا" width="400" height="320" />
                     <img src="../images/mainImages/games.webp" alt="لعب" width="400" height="320" />
-                    <img src="../images/mainImages/chat.webp" alt="شات" width="400" height="320" />
+                    <img src="../images/mainImages/message.webp" alt="شات" width="400" height="320" />
                     <img src="../images/mainImages/logo.webp" alt="مجتمعنا" width="400" height="320" />
                 </div>
             </div>
