@@ -32,8 +32,8 @@ h1 {
     font-family: 'Lobster', cursive;
     font-size: 30px;
     display: inline-block;
-    text-align: left;
-    background-image: linear-gradient(to right, red 0%, green 50%, blue 100%);
+    text-align: right;
+    background-image: linear-gradient(to left, red 0%, green 50%, blue 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -51,8 +51,8 @@ h1 {
 .menu {
     width: 40px;
     height: 40px;
-    float: right;
-    margin-right: 10px;
+    float: left;
+    margin-left: 10px;
     cursor: pointer;
 }
 .menu span {
@@ -67,7 +67,7 @@ h1 {
 .dropdown {
     position: absolute;
     top: 50px;
-    right: 10px;
+    left: 10px;
     background-color: ghostwhite;
     text-align: center;
     border-radius: 5px;
@@ -181,7 +181,7 @@ footer {
     .menu {
         width: 20px;
         height: 20px;
-        margin-right: 5px;
+        margin-left: 5px;
     }
     .menu span {
         border: 1.5px solid black;
@@ -189,7 +189,7 @@ footer {
     }
     .dropdown {
         top: 30px;
-        right: 5px;
+        left: 5px;
     }
     .display-dropdown {
         width: 120px;

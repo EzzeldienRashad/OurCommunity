@@ -10,7 +10,7 @@ if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
 	$groupToken = $_COOKIE["groupToken"];
 }
 if (isset($groupName) && isset($groupToken)) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G");
 	$stmt = $pdo->prepare("SELECT groupToken FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$groupName]);
@@ -24,19 +24,19 @@ if (isset($groupName) && isset($groupToken)) {
 // Check for errors, then add the group to the database
 if (isset($_POST["signupGroupSubmit"])) {
 	if (strlen($_POST["signupGroupName"]) > 30) {
-		$_SESSION["signupNameErr"] = "*group name too long";
+		$_SESSION["signupNameErr"] = "اسم المجموعة طويل جدًا*";
 	} else if (strlen($_POST["signupGroupName"]) < 3) {
-		$_SESSION["signupNameErr"] = "*group name too short";
+		$_SESSION["signupNameErr"] = "اسم المجموعة قصير جدًا*";
 	} else if (!preg_match("/^[\w\d\s_]+$/", $_POST["signupGroupName"])) {
-		$_SESSION["signupNameErr"] = "*group name has unallowed characters";
+		$_SESSION["signupNameErr"] = "عفوًا, غير مسموح برموز خاصة*";
 	} else {
-		$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+		$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 		$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
 		$stmt = $pdo->prepare("SELECT 1 FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 		$stmt->execute([$_POST["signupGroupName"]]);
 		$info = $stmt->fetch();
 		if ($info) {
-			$_SESSION["signupNameErr"] = "*group already exists";
+			$_SESSION["signupNameErr"] = "المجموعة موجودة بالفعل*";
 		} else {
 			$token = bin2hex(random_bytes(16));
             $stmt = $pdo->prepare("INSERT INTO b16_32390973_OurCommunity.Groups (groupName, groupPassword, groupToken)
@@ -53,7 +53,7 @@ if (isset($_POST["signupGroupSubmit"])) {
 }
 //check for errors, then enter group
 if (isset($_POST["loginGroupSubmit"])) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
 	$stmt = $pdo->prepare("SELECT * FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$_POST["loginGroupName"]]);
@@ -75,14 +75,14 @@ if (isset($_POST["loginGroupSubmit"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-	<title>OurCommunity groups</title>
+	<title>مجتمعنا</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<meta name="author" content="Ezzeldien Rashad" />
-	<meta name="description" content="OurCommunity groups, a community for meeting friends, sending messages, playing, etc....">
-	<meta name="keywords" content="groups, community, chat, message friends, meeting, main page, playing games" />
+    <meta name="author" content="عزالدين رشاد" />
+	<meta name="description" content="موقع مجتمعنا للعب ومقابلة اﻷصدقاء وغير ذلك الكثير">
+	<meta name="keywords" content="مجتمع, شات, مراسلة اﻷصدقاء, مجموعات, ألعاب" />
 	<script type="text/javascript" src="scripts/groups.js" defer></script>
 	<script type="text/javascript" src="scripts/header.js" defer></script>
 	<script src="https://kit.fontawesome.com/5cf0e9fc67.js" crossorigin="anonymous"></script>
@@ -96,91 +96,92 @@ if (isset($_POST["loginGroupSubmit"])) {
 <body>
 <header>
 <span class="decoration"></span>
-<h1>OurCommunity</h1>
-<div class="hello">Hello, <span><?php echo $name; ?></span>!</div>
+<h1>مجتمعنا</h1>
+<div class="hello">أهلًا, <span><?php echo $name; ?></span>!</div>
 <div class="menu">
 	<span></span>
 	<span></span>
 	<span></span>
 </div>
 <div class="dropdown">
-<a href="../">main page</a>
-<a href="users.php">other users</a>
-<a href="users.php?groups=true">groups</a>
+<a href="../">الصفحة الرئيسية</a>
+<a href="index.php">غرفة المحادثة</a>
+<a href="users.php">مستخدمين آخرين</a>
+<a href="users.php?groups=true">المجموعات</a>
 <form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="logout" value="logout" />
+	<input type="submit" name="logout" value="تسجيل خروج" />
 </form>
 <form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="groupLogout" value="Exit group" />
+	<input type="submit" name="groupLogout" value="الخروج من المجموعة" />
 </form>
 </div>
 </header>
 <main>
 <?php 
 if (isset($_SESSION["signupNameErr"])) { ?>
-	<div class="signupNameErr">Please fix the errors below to create the group.</div>
+	<div class="signupNameErr">برجاء إصلاح اﻷخطاء باﻷسفل ﻹنشاء المجموعة.</div>
 <?php 
 }
 if (isset($_SESSION["loginNameErr"]) || isset($_SESSION["loginPasswordErr"])) { ?>
-	<div class="loginNamePasswordErr">Please fix the errors below to join the group.</div>
+	<div class="loginNamePasswordErr">برجاء إصلاح اﻷخطاء باﻷسفل للدخول إلى المجموعة.</div>
 <?php 
 }
  ?>
 <i class="fa-solid fa-share fa-2x" style="transform: rotate(180deg)"></i>
 <button class="join-group">
-    <span class="center">Join a Group</span>
+    <span class="center">الدخول إلى مجموعة</span>
 </button>
 <button class="create-group">
-    <span class="center">Create a New Group</span>
+    <span class="center">إنشاء مجموعة</span>
 </button>
 <div class="join-group-method">
     <button class="enter-form">
-        <span>Enter Group Name and Password</span>
+        <span>أدخل اﻹسم وكلمة السر</span>
     </button>
     <form name="joinGroupFields" class="join-group-fields" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
-        <label for="loginGroupName">group name: &nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" size="30" width="30" name="loginGroupName" id="loginGroupName" placeholder="group name"/>
-		<div id="loginNameErr" class="err"><?php if (isset($_SESSION["loginNameErr"])) {echo "*Wrong Group Name"; unset($_SESSION["loginNameErr"]);} ?></div>
+        <label for="loginGroupName">اسم المجموعة: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" size="30" width="30" name="loginGroupName" id="loginGroupName" placeholder="اسم المجموعة"/>
+		<div id="loginNameErr" class="err"><?php if (isset($_SESSION["loginNameErr"])) {echo "اسم خاطئ*"; unset($_SESSION["loginNameErr"]);} ?></div>
         <br />
         <br />
-        <label for="loginGroupPassword">group password: </label>
+        <label for="loginGroupPassword">كلمة سر المجموعة: </label>
 		<div class="password-cont">
-            <input type="password" size="30" name="loginGroupPassword" id="loginGroupPassword" placeholder="group password"/>
+            <input type="password" size="30" name="loginGroupPassword" id="loginGroupPassword" placeholder="كلمة سر المجموعة"/>
 			<span class="password-eye login-eye">&#128065;</span>
-			<div id="loginPasswordErr" class="err"><?php if (isset($_SESSION["loginPasswordErr"])) {echo "*Wrong Password"; unset($_SESSION["loginPasswordErr"]);} ?></div>
+			<div id="loginPasswordErr" class="err"><?php if (isset($_SESSION["loginPasswordErr"])) {echo "*كلمة سر خاطئة"; unset($_SESSION["loginPasswordErr"]);} ?></div>
 		</div>
 		<br />
         <br />
         <input type="submit" size="30" name="loginGroupSubmit" value="Enter group"/>
     </form>
     <a href="users.php?groups=true" class="show-list">
-        <span>Show a List of Available Groups</span>
+        <span>المجموعات المتاحة</span>
     </a>
 </div>
 <form name="createGroupFields" class="create-group-fields" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
     <label>
-        group name: &nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" size="30" width="30" name="signupGroupName" placeholder="group name"/>
+        اسم المجموعة: &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" size="30" width="30" name="signupGroupName" placeholder="اسم المجموعة"/>
     </label>
     <div id="signupNameErr" class="err"><?php if (isset($_SESSION["signupNameErr"])) {echo  $_SESSION["signupNameErr"]; unset($_SESSION["signupNameErr"]);} ?></div>
     <br />
-    <label for="signupGroupPassword">group password: </label>
+    <label for="signupGroupPassword">كلمة سر المجموعة: </label>
     <div class="password-cont">
-	    <input type="password" size="30" id="signupGroupPassword" name="signupGroupPassword" placeholder="group password"/>
+	    <input type="password" size="30" id="signupGroupPassword" name="signupGroupPassword" placeholder="كلمة سر المجموعة"/>
         <span class="password-eye signup-eye">&#128065;</span>
 		<div id="passStrengthInfo" class="err"></div>
     </div>
     <br />
     <br />
-    <input type="submit" size="30" name="signupGroupSubmit" value="Create group"/>
+    <input type="submit" size="30" name="signupGroupSubmit" value="أنشئ المجموعة"/>
 </form>
 
 </main>
 <footer>
-<a href="signup.php">sign up</a>
-<a href="login.php">log in</a>
+<a href="signup.php">إنشاء حساب</a>
+<a href="login.php">تسجيل الدخول</a>
 <br /><br />
-&copy; Ezzeldien 2022 - <?php echo date("Y") ?>
+&copy; جميع الحقوق محفوظة لمجتمعنا 2022 - <?php echo date("Y") ?>
 </footer>
 </body>
 </html>

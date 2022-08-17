@@ -111,7 +111,7 @@ span.center {
 .password-eye {
 	position: absolute;
 	top: 0;
-	right: 10px;
+	left: 10px;
 	font-size: 20px;
 	cursor: pointer;
 }
@@ -129,7 +129,7 @@ progress {
     color: var(--progress-color);
     position: absolute;
     top: 50px;
-    left: 0;
+    right: 0;
 }
 .signupNameErr, .loginNamePasswordErr {
     text-align: center;

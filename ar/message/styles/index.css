@@ -16,23 +16,23 @@ h2 {
 .comment span.curve {
     background-color: darkgoldenrod;
     display: inline-block;
-    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
     width: 9%;
     height: 50.5px;
-    margin-right: 10px;
+    margin-left: 10px;
     position: relative;
 }
 .comment span.curve i {
     position: absolute;
     top: 25px;
-    left: 35px;
+    right: 35px;
     color: darkred;
     cursor: pointer;
 }
 .comment div.comment-body {
     border: 2px solid black;
     padding: 10px;
-    padding-right: 20px;
+    padding-left: 20px;
     margin-top: -5px;
     word-wrap: break-word;
     color: black;
@@ -41,7 +41,7 @@ h2 {
 .fa-heart-circle-plus {
     position: absolute;
     bottom: 5px;
-    right: 5px;
+    left: 5px;
     color: grey;
     cursor: pointer;
 }
@@ -93,7 +93,7 @@ h2 {
     border-radius: 50%;
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     transition-duration: 0.25s;
 }
 .add-comment-btn:hover {
@@ -103,16 +103,16 @@ h2 {
 }
 .add-c2c {
     background-color: lightcyan;
-    float: right;
+    float: left;
 }
 .c2c-cont {
     padding: 20px;
-    padding-left: 30px;
+    padding-right: 30px;
     font-size: 15px;
 }
 .c2c-cont div p {
     color: darkslategray;
-    padding-left: 20px;
+    padding-right: 20px;
     margin: 0px;
 }
 .c2c-cont hr {
@@ -141,7 +141,7 @@ h2 {
     padding: 10px;
     color: white;
     background-color: darkblue;
-    float: right;
+    float: left;
     font-weight: bold;
 }
 .c2c-name {
@@ -151,10 +151,10 @@ h2 {
 @media only screen and (max-width: 750px) {
 
     .add-comment-btn {
-        right: 0;
+        left: 0;
     }
     .comment span.curve i {
-        left: 10px;
+        right: 10px;
     }
     .add-c2c-btn {
         font-size: 13px;
@@ -184,7 +184,7 @@ h2 {
     }
     .comment div.comment-body {
         padding: 5px;
-        padding-right: 20px;
+        padding-left: 20px;
         font-size: 14px;
     }
     .comment {
@@ -193,7 +193,7 @@ h2 {
     }
     .comment span.curve i {
         top: 15px;
-        left: 0;
+        right: 0;
     }
     .add-c2c-btn {
         font-size: 10px;

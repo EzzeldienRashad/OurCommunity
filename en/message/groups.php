@@ -10,7 +10,7 @@ if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
 	$groupToken = $_COOKIE["groupToken"];
 }
 if (isset($groupName) && isset($groupToken)) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G");
 	$stmt = $pdo->prepare("SELECT groupToken FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$groupName]);
@@ -30,7 +30,7 @@ if (isset($_POST["signupGroupSubmit"])) {
 	} else if (!preg_match("/^[\w\d\s_]+$/", $_POST["signupGroupName"])) {
 		$_SESSION["signupNameErr"] = "*group name has unallowed characters";
 	} else {
-		$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+		$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 		$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
 		$stmt = $pdo->prepare("SELECT 1 FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 		$stmt->execute([$_POST["signupGroupName"]]);
@@ -53,7 +53,7 @@ if (isset($_POST["signupGroupSubmit"])) {
 }
 //check for errors, then enter group
 if (isset($_POST["loginGroupSubmit"])) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
 	$stmt = $pdo->prepare("SELECT * FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$_POST["loginGroupName"]]);

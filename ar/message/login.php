@@ -9,7 +9,7 @@ if (isset($_SESSION["name"]) && isset($_SESSION["token"])) {
 	$token = $_COOKIE["token"];
 }
 if (isset($name) && isset($token)) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G");
 	$stmt = $pdo->prepare("SELECT token FROM b16_32390973_OurCommunity.Users WHERE name = ?");
 	$stmt->execute([$name]);
@@ -24,7 +24,7 @@ if (isset($name) && isset($token)) {
 if (isset($_POST["submit"])) {
 	$_SESSION["email"] = $_POST["email"];
 	$_SESSION["password"] = $_POST["password"];
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
 	$stmt = $pdo->prepare("SELECT * FROM b16_32390973_OurCommunity.Users WHERE email = ?");
 	$stmt->execute([$_POST["email"]]);
@@ -50,14 +50,14 @@ if (isset($_POST["submit"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-	<title>OurCommunity login</title>
+	<title>مجتمعنا</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<meta name="description" content="Login to OurCommunity, a community for meeting friends, sending messages, playing, etc...." />
-	<meta name="author" content="Ezzeldien Rashad" />
-	<meta name="keywords" content="community, chat, message friends, meeting, login, playing games" />
+    <meta name="author" content="عزالدين رشاد" />
+	<meta name="description" content="موقع مجتمعنا للعب ومقابلة اﻷصدقاء وغير ذلك الكثير">
+	<meta name="keywords" content="مجتمع, شات, مراسلة اﻷصدقاء, مجموعات, ألعاب" />
 	<script type="text/javascript" src="scripts/login.js" defer></script>
 	<link rel="icon" href="../../images/mainImages/logo.webp" />
 	<link rel="stylesheet" href="styles/login.css" />
@@ -67,39 +67,39 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
 <main>
-<h1>OurCommunity</h1>
+<h1>مجتمعنا</h1>
 <div class="form">
-Log in to OurCommunity<br />
+تسجيل الدخول<br />
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
-		<input type="email" name="email" placeholder="Email address" autocomplete="email" style="<?php if (isset($_SESSION["emailErr"])) echo "border-color: red"; ?>" value="<?php if (isset($_SESSION["email"])) echo $_SESSION["email"]; ?>" />
-		<div id="emailErr" class="err"><?php if (isset($_SESSION["emailErr"])) {echo "Wrong Email"; unset($_SESSION["emailErr"]);} ?></div>
+		<input type="email" name="email" placeholder="البريد اﻹلكترونى" autocomplete="email" style="<?php if (isset($_SESSION["emailErr"])) echo "border-color: red"; ?>" value="<?php if (isset($_SESSION["email"])) echo $_SESSION["email"]; ?>" />
+		<div id="emailErr" class="err"><?php if (isset($_SESSION["emailErr"])) {echo "إيميل خطأ"; unset($_SESSION["emailErr"]);} ?></div>
 		<div class="password-cont">
-			<input type="password" name="password" placeholder="Password" autocomplete="current-password" style="padding-right: 40px;<?php if (isset($_SESSION["passwordErr"])) echo "border-color: red"; ?>" value="<?php if (isset($_SESSION["password"])) echo $_SESSION["password"]; ?>" />
+			<input type="password" name="password" placeholder="كلمة السر" autocomplete="current-password" style="padding-left: 40px;<?php if (isset($_SESSION["passwordErr"])) echo "border-color: red"; ?>" value="<?php if (isset($_SESSION["password"])) echo $_SESSION["password"]; ?>" />
 			<span class="password-eye">&#128065;</span>
-			<div id="passwordErr" class="err"><?php if (isset($_SESSION["passwordErr"])) {echo "Wrong Password"; unset($_SESSION["passwordErr"]);} ?></div>
+			<div id="passwordErr" class="err"><?php if (isset($_SESSION["passwordErr"])) {echo "كلمة سر خطأ"; unset($_SESSION["passwordErr"]);} ?></div>
 		</div>
-		<input type="submit" name="submit" class="submit" value="log in" />
+		<input type="submit" name="submit" class="submit" value="تسجيل الدخول" />
 		<div class="remember-div">
 			<label>
-				<input type="checkbox" name="remember" value="on" checked /> remember me 
+				<input type="checkbox" name="remember" value="on" checked /> تذكرنى 
 			</label>
 		</div>
 	</form>
 	<div class="relative">
 		<hr />
-		<div class="or">or</div>
+		<div class="or">أو</div>
 	</div>
 	<br />
-	<a href="signup.php">Sign Up</a>
+	<a href="signup.php">إنشاء حساب</a>
 	<br />
 </div>
 
 </main>
 <footer>
-<a href="signup.php">sign up</a>
-<a href="login.php">log in</a>
+<a href="signup.php">إنشاء حساب</a>
+<a href="login.php">تسجيل الدخول</a>
 <br /><br />
-&copy; Ezzeldien 2022 - <?php echo date("Y") ?>
+&copy; جميع الحقوق محفوظة لمجتمعنا 2022 - <?php echo date("Y") ?>
 </footer>
 </body>
 </html>

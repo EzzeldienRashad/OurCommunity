@@ -18,7 +18,7 @@ h1 {
 	font-family: 'Lobster', cursive;
 	font-size: 40px;
 	text-align: center;
-	background-image: linear-gradient(to right, red 0%, green 50%, blue 100%);
+	background-image: linear-gradient(to left, red 0%, green 50%, blue 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -39,7 +39,7 @@ input:not([type="checkbox"]) {
 	border-radius: 20px;
 }
 .remember-div {
-	text-align: left;
+	text-align: right;
 }
 input::placeholder {
 	color: darkslategrey;
@@ -57,14 +57,14 @@ input:focus::placeholder {
 .password-eye {
 	position: absolute;
 	top: 0;
-	right: 10px;
+	left: 10px;
 	font-size: 30px;
 	cursor: pointer;
 }
 .err {
 	color: red;
 	font-size: 15px;
-	text-align: left;
+	text-align: right;
 }
 .submit {
 	background-color: orange;
@@ -84,7 +84,7 @@ hr {
 	border-radius: 20px;
 	position: absolute;
 	top: -10px;
-	left: 46%;
+	right: 46%;
 	background-color: white;
 	padding: 0 10px;
 }

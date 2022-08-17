@@ -45,7 +45,7 @@ include "header.php";
 <main>
 <?php
 // show users/groups present in database
-$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 $pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));	
 if (isset($_GET["groups"]) && $_GET["groups"] == "true") {
 	echo "<h2>Groups:</h2>";

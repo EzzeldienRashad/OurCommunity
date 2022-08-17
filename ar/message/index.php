@@ -10,17 +10,17 @@ if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
 	$groupToken = $_COOKIE["groupToken"];
 }
 if (isset($groupName) && isset($groupToken)) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));	
 	$stmt = $pdo->prepare("SELECT groupToken FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$groupName]);
 	$resultGroupToken = $stmt->fetchColumn();
 	if (!$resultGroupToken || $resultGroupToken != $groupToken) {
-		header("Location: login.php");
+		header("Location: groups.php");
 		exit;
 	}
 } else {
-	header("location: login.php");
+	header("location: groups.php");
 	exit;
 }
 
@@ -75,15 +75,14 @@ if (isset($_POST["c2cSubmit"]) && isset($_GET["c2cId"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-	<title>OurCommunity</title>
+	<title>مجتمعنا</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<meta name="author" content="Ezzeldien Rashad" />
-	<meta name="description" content="OurCommunity, a community for meeting friends, sending messages, playing, etc....">
-	<meta name="keywords" content="community, chat, message friends, meeting, main page, playing games" />
-	<script type="text/javascript" src="scripts/index.js" defer></script>
+    <meta name="author" content="عزالدين رشاد" />
+	<meta name="description" content="موقع مجتمعنا للعب ومقابلة اﻷصدقاء وغير ذلك الكثير">
+	<meta name="keywords" content="مجتمع, شات, مراسلة اﻷصدقاء, مجموعات, ألعاب" />
 	<script type="text/javascript" src="scripts/header.js" defer></script>
 	<script src="https://kit.fontawesome.com/5cf0e9fc67.js" crossorigin="anonymous"></script>
 	<link rel="icon" href="../../images/mainImages/logo.webp">
@@ -96,41 +95,43 @@ if (isset($_POST["c2cSubmit"]) && isset($_GET["c2cId"])) {
 <body>
 <header>
 <span class="decoration"></span>
-<h1>OurCommunity</h1>
-<div class="hello">Hello, <span><?php echo $name; ?></span>!</div>
+<h1>مجتمعنا</h1>
+<div class="hello">أهلًا, <span><?php echo $name; ?></span>!</div>
 <div class="menu">
 	<span></span>
 	<span></span>
 	<span></span>
 </div>
 <div class="dropdown">
-<a href="../">main page</a>
-<a href="users.php">other users</a>
-<a href="users.php?groups=true">groups</a>
+<a href="../">الصفحة الرئيسية</a>
+<a href="index.php">غرفة المحادثة</a>
+<a href="users.php">مستخدمين آخرين</a>
+<a href="users.php?groups=true">المجموعات</a>
 <form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="logout" value="logout" />
+	<input type="submit" name="logout" value="تسجيل خروج" />
 </form>
 <form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="groupLogout" value="Exit group" />
+	<input type="submit" name="groupLogout" value="الخروج من المجموعة" />
 </form>
 </div>
 </header>
 <main>
 
-<button class="add-comment">+ add comment</button>
+<button class="add-comment">+ اضافة تعليق</button>
 <form class="new-comment" aria-hidden="true" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
 	<textarea name="commentText"></textarea>
-	<input class="add-comment-btn" type="submit" name="comment" value="+add" />
+	<input class="add-comment-btn" type="submit" name="comment" value="+اضافة" />
 </form>
 <div class="comments-cont"></div>
-<button class="more-comments">load more comments</button>
+<button class="more-comments">المزيد من التعليقات</button>
 
 </main>
 <footer>
-<a href="signup.php">sign up</a>
-<a href="login.php">log in</a>
+<a href="signup.php">إنشاء حساب</a>
+<a href="login.php">تسجيل الدخول</a>
 <br /><br />
-&copy; Ezzeldien 2022 - <?php echo date("Y") ?>
+&copy; جميع الحقوق محفوظة لمجتمعنا 2022 - <?php echo date("Y") ?>
 </footer>
+<?php include "scripts/indexScript.php" ?>
 </body>
 </html>

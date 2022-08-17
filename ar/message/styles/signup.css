@@ -20,7 +20,7 @@ h1 {
     font-family: 'Lobster', cursive;
     font-size: 40px;
     text-align: center;
-    background-image: linear-gradient(to right, red 0%, green 50%, blue 100%);
+    background-image: linear-gradient(to left, red 0%, green 50%, blue 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -69,7 +69,7 @@ progress {
     color: var(--progress-color);
     position: absolute;
     top: 50px;
-    right: 20px;
+    left: 20px;
 }
 .submit {
     display: inline-block;
@@ -95,14 +95,14 @@ input:focus::placeholder {
 .password-eye {
 	position: absolute;
 	top: -5px;
-	right: 10px;
+	left: 10px;
 	font-size: 30px;
 	cursor: pointer;
 }
 .err {
     color: red;
     font-size: 15px;
-    text-align: left;
+    text-align: right;
 }
 .login-redirect {
     color: royalblue;

@@ -9,7 +9,7 @@ if (isset($_SESSION["name"]) && isset($_SESSION["token"])) {
 	$token = $_COOKIE["token"];
 }
 if (isset($name) && isset($token)) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G");
 	$stmt = $pdo->prepare("SELECT token FROM b16_32390973_OurCommunity.Users WHERE name = ?");
 	$stmt->execute([$name]);
@@ -32,7 +32,7 @@ if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
 	$groupToken = $_COOKIE["groupToken"];
 }
 if (isset($groupName) && isset($groupToken)) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G");
 	$stmt = $pdo->prepare("SELECT groupToken FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$groupName]);
@@ -51,7 +51,7 @@ function filterComments($arr) {
 	global $groupName;
 	return $arr["groupName"] == $groupName;
 }
-$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 $pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));	
 $stmt = $pdo->prepare("SELECT * FROM b16_32390973_OurCommunity.Comments where groupName = ?");
 $stmt->execute([$groupName]);

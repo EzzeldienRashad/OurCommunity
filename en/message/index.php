@@ -10,17 +10,17 @@ if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
 	$groupToken = $_COOKIE["groupToken"];
 }
 if (isset($groupName) && isset($groupToken)) {
-	$dsn = "mysql:host=sql308.byethost16.com;dbname=b16_32390973_OurCommunity";
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));	
 	$stmt = $pdo->prepare("SELECT groupToken FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$groupName]);
 	$resultGroupToken = $stmt->fetchColumn();
 	if (!$resultGroupToken || $resultGroupToken != $groupToken) {
-		header("Location: login.php");
+		header("Location: groups.php");
 		exit;
 	}
 } else {
-	header("location: login.php");
+	header("location: groups.php");
 	exit;
 }
 
@@ -83,7 +83,6 @@ if (isset($_POST["c2cSubmit"]) && isset($_GET["c2cId"])) {
 	<meta name="author" content="Ezzeldien Rashad" />
 	<meta name="description" content="OurCommunity, a community for meeting friends, sending messages, playing, etc....">
 	<meta name="keywords" content="community, chat, message friends, meeting, main page, playing games" />
-	<script type="text/javascript" src="scripts/index.js" defer></script>
 	<script type="text/javascript" src="scripts/header.js" defer></script>
 	<script src="https://kit.fontawesome.com/5cf0e9fc67.js" crossorigin="anonymous"></script>
 	<link rel="icon" href="../../images/mainImages/logo.webp">
@@ -132,5 +131,6 @@ if (isset($_POST["c2cSubmit"]) && isset($_GET["c2cId"])) {
 <br /><br />
 &copy; Ezzeldien 2022 - <?php echo date("Y") ?>
 </footer>
+<?php include "scripts/indexScript.php" ?>
 </body>
 </html>

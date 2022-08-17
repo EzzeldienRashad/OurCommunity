@@ -77,23 +77,23 @@ document.forms["createGroupFields"].signupGroupPassword.addEventListener("input"
 			passStrengthInfo.style.color = "";
 			break;
 			case 1:
-			passStrengthInfo.innerHTML = "*very weak password &nbsp;&nbsp;<progress value='1' max='5' style='--progress-color: red;'></progress>";
+			passStrengthInfo.innerHTML = "<progress value='1' max='5' style='--progress-color: red;'></progress>*كلمة سر شديدة الضعف";
 			passStrengthInfo.style.color = "red";
 			break;
 		case 2:
-			passStrengthInfo.innerHTML = "*weak password &nbsp;&nbsp;<progress value='2' max='5' style='--progress-color: deeppink;'></progress>";
+			passStrengthInfo.innerHTML = "<progress value='2' max='5' style='--progress-color: deeppink;'></progress>*كلمة سر ضعيفة";
 			passStrengthInfo.style.color = "deeppink";
 			break;
 		case 3:
-			passStrengthInfo.innerHTML = "*good password &nbsp;&nbsp;<progress value='3' max='5' style='--progress-color: orange;'></progress>";
+			passStrengthInfo.innerHTML = "<progress value='3' max='5' style='--progress-color: orange;'></progress>*كلمة سر لا بأس لها";
 			passStrengthInfo.style.color = "orange";
 			break;
 		case 4:
-			passStrengthInfo.innerHTML = "*very good password &nbsp;&nbsp;<progress value='4' max='5' style='--progress-color: lightgreen;'></progress>";
+			passStrengthInfo.innerHTML = "<progress value='4' max='5' style='--progress-color: lightgreen;'></progress>*كلمة سر جيدة";
 			passStrengthInfo.style.color = "lightgreen";
 			break;
 		case 5:
-			passStrengthInfo.innerHTML = "*excellent password &nbsp;&nbsp;<progress value='5' max='5' style='--progress-color: green;'></progress>"
+			passStrengthInfo.innerHTML = "<progress value='5' max='5' style='--progress-color: green;'></progress>*كلمة سر ممتازة"
 			passStrengthInfo.style.color = "green";
 			break;
 	}

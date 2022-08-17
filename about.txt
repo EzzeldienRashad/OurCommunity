@@ -16,6 +16,5 @@ enPicture
 href
 jsonFile (if it is a link to another page)
 
-4046847_OurCommunity , b16_32390973
+** to upload, replace:
 localhsot , sql308.byethost16.com
-b16_32390973_OurCommunity, b16_32390973_OurCommunity
