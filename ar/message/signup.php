@@ -30,9 +30,9 @@ if (isset($_POST["submit"])) {
 	} else if (strlen($_POST["name"]) < 3) {
 		$_SESSION["nameErr"] = "اﻹسم قصير جدًا*";
 	} else if (!preg_match("/^[\w\d\s_]+$/", $_POST["name"])) {
-		$_SESSION["nameErr"] = "*غير مسموح برموز خاصة*";
+		$_SESSION["nameErr"] = "غير مسموح برموز خاصة*";
 	} else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-		$_SESSION["emailErr"] = "*اﻹيميل به أخطاء*";
+		$_SESSION["emailErr"] = "اﻹيميل به أخطاء*";
 	} else {
 		$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 		$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));	

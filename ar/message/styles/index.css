@@ -85,6 +85,9 @@ h2 {
 .new-comment textarea:focus {
     outline: 2px solid darkgoldenrod;
 }
+.comment-body, .c2c-cont div p {
+    word-break: break-word;
+}
 .add-comment-btn {
     padding: 35px 30px;
     cursor: pointer;

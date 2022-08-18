@@ -62,7 +62,6 @@
         <nav>
             <a href="index.php">Home</a>
             <a href="services.php">Services</a>
-            <a href="games.php">Games</a>
             <a href="about.php">about</a>
             <a href="customers.php">Users</a>
             <span class="disabled">Contact Us</span>

@@ -12,14 +12,16 @@ function loadComments() {
             scroll = scrollY;
             commentsCont.innerHTML = "";
             for (let i = 1; i <= (comments.length > commentsCount ? commentsCount : comments.length); i++) {
+                //get info
                 let name = comments[i - 1]["name"];
-                let hasComment = name == document.querySelector(".hello span").textContent;
+                let hasComment = name == "<?php echo $name ?>";
                 let comment = comments[i - 1]["body"];
                 let date = new Date(comments[i - 1]["date"].replace(/:(?=.*?\s)/g, "-").replace(/\s/, "T"));
                 let id = comments[i - 1]["id"];
                 let lovers = JSON.parse(comments[i - 1]["lovers"]);
                 let loveCount = lovers.length;
                 let c2cs = JSON.parse(comments[i - 1]["comments"].replace(/\r/g, "\\r").replace(/\n/g, "\\n"));
+                //create comment title
                 let commentCont = document.createElement("div");
                 commentCont.className = "comment";
                 let commenter = document.createElement("h2");
@@ -44,6 +46,7 @@ function loadComments() {
                     love.insertAdjacentHTML("afterend", "<br />");
                     love.insertAdjacentHTML("beforebegin", loveCount);
                 }
+                //create comment date
                 let milliseconds = new Date("<?php echo date("o-m-d\TH:i:s.v") ?>").getTime() - date.getTime();
                 let minutes = Math.round(milliseconds / 60_000);
                 let hours = Math.round(minutes / 60);
@@ -58,6 +61,7 @@ function loadComments() {
                 commentTime.className = "comment-time";
                 commentInfo.append(commentTime);
                 commentCont.append(commentInfo);
+                //create comment body
                 let commentBody = document.createElement("div");
                 commentBody.className = "comment-body";
                 let commentArr = comment.replace(/\r/g, "").split("\n");
@@ -74,6 +78,7 @@ function loadComments() {
                     });
                 }
                 commentCont.append(commentBody);
+                //create the comments to the comments
                 let c2cCont = document.createElement("div");
                 c2cCont.className = "c2c-cont";
                 for (let c2c of c2cs) {

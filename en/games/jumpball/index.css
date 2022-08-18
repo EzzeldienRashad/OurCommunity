@@ -1,0 +1,54 @@
+.frame {
+    width: 100%;
+    height: 80vh;
+    border: 5px solid black;
+    margin: auto;
+    position: relative;
+    background-image: url("../../../images/jumpball/background.webp");
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.ball {
+    background-color: red;
+    padding: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+}
+.wall {
+    background-color: green;
+    display: inline-block;
+    width: 30px;
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+}
+.heart {
+    color: red;
+    margin: 15px 5px;
+    float: right;
+}
+#replay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+#replay button {
+    padding: 30px;
+    background-color: greenyellow;
+    font-size: 2vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, -50%);
+    z-index: 1000;
+    border-radius: 10px;
+    cursor: pointer;
+}

@@ -15,5 +15,5 @@ document.getElementsByClassName("menu")[0].addEventListener("click", function ()
 // position footer correctly
 window.addEventListener("DOMContentLoaded", function() {
 	document.getElementsByTagName("main")[0].style.minHeight =
-		document.documentElement.clientHeight - 80 + "px";
+		document.documentElement.clientHeight - 20 + "px";
 });
