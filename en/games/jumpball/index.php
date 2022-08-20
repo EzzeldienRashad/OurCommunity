@@ -21,10 +21,13 @@
 </head>
 <body>
     <header>
-        <div class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-cont">
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            menu
         </div>
         <nav>
             <a href="../../index.php">Home</a>
@@ -36,9 +39,20 @@
     </header>
     <main>
 
-    <div class="frame">
-        <div id="replay">
-            <button onclick="reload()">PLAY AGAIN!!!</button>
+    <div class="frame-cont">
+        <img src="../../../images/jumpball/background.webp" alt="">
+        <img src="../../../images/jumpball/background.webp" alt="">
+        <div class="frame">
+            <div id="play">
+                <button>play</button>
+            </div>
+            <div id="replay">
+                <button>
+                    points: <span></span>
+                    <br>
+                    PLAY AGAIN!!!
+                </button>
+            </div>
         </div>
     </div>
 

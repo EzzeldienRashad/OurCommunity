@@ -23,10 +23,13 @@
             </h1>
             <a href="../en" class="switch-lang" hreflang="en">English</a>
         </div>
-        <div class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-cont">
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            القائمة
         </div>
         <nav>
             <a href="index.php">الرئيسية</a>

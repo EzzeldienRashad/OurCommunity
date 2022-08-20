@@ -1,3 +1,5 @@
+addEventListener("load", function () {
+
 //show links on menu click
 let nav = document.getElementsByTagName("nav")[0];
 document.getElementsByClassName("menu")[0].addEventListener("click", function () {
@@ -22,6 +24,8 @@ if (document.getElementsByClassName("logo-header")[0]) {
             document.getElementsByClassName("logo-header")[0].clientWidth - 
             (document.querySelector(".logo-header img").getBoundingClientRect().right + 10) + "px";
     }
+}
+if (document.querySelector("header nav")) {
     addEventListener("load", function () {
         if (document.documentElement.offsetWidth < 820) {
             document.querySelector("header nav").style.top = 
@@ -128,3 +132,5 @@ if (document.getElementById("faq")) {
         })
     }
 }
+
+});

@@ -54,10 +54,13 @@
             </h1>
             <a href="../ar" class="switch-lang" hreflang="ar">العربية</a>
         </div>
-        <div class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-cont">
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            menu
         </div>
         <nav>
             <a href="index.php">Home</a>

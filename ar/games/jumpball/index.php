@@ -21,10 +21,13 @@
 </head>
 <body>
     <header>
-        <div class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-cont">
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            القائمة
         </div>
         <nav>
             <a href="../../index.php">الرئيسية</a>
@@ -36,9 +39,20 @@
     </header>
     <main>
 
-    <div class="frame">
-        <div id="replay">
-            <button onclick="reload()">اعادة اللعب</button>
+    <div class="frame-cont">
+        <img src="../../../images/jumpball/background.webp" alt="">
+        <img src="../../../images/jumpball/background.webp" alt="">
+        <div class="frame">
+            <div id="play">
+                <button>ابدأ اللعب</button>
+            </div>
+            <div id="replay">
+                <button>
+                    النقاط: <span></span>
+                    <br>
+                    اعادة اللعب
+                </button>
+            </div>
         </div>
     </div>
 

@@ -14,10 +14,13 @@
 </head>
 <body>
     <header>
-        <div class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-cont">
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            menu
         </div>
         <nav>
             <span class="disabled">Home</span>

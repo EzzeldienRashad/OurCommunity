@@ -73,6 +73,9 @@ header nav a:hover, .disabled {
 .disabled {
     cursor: auto;
 }
+.menu-cont {
+    display: none;
+}
 /**************** section 1 *******************/
 main {
     background-color: white;
@@ -607,6 +610,9 @@ h1 {
     }
     header nav a, .disabled {
         width: 100px;
+    }
+    .menu-cont {
+        display: block;
     }
     .menu {
         display: inline-block;
