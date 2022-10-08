@@ -13,25 +13,22 @@ window.cancelAnimationFrame = window.cancelAnimationFrame
     || function(requestID){clearTimeout(requestID)}
 
 //fixed values
-let minTimeBetweenCreations, maxTimeBetweenCreations, maxWallHeight, minWallHeight, wallsSpeed, ballTransitionDuration;
+let minTimeBetweenCreations, maxTimeBetweenCreations, maxWallHeight, minWallHeight, wallsSpeed, ballTransitionDuration, wallsPerLevel;
+minTimeBetweenCreations = 2300;
+maxTimeBetweenCreations = 3000;
+minJumpHeight = 1.1;
+maxJumpHeight = 1.5;
+wallsPerLevel = 1;
 if (document.body.clientWidth <= 900) {
-    minTimeBetweenCreations = 2300;
-    maxTimeBetweenCreations = 3000;
     ballTransitionDuration = 2000;
     maxWallHeight = 100;
     minWallHeight = 25;
     wallsSpeed = 2;
-    minJumpHeight = 1.1;
-    maxJumpHeight = 1.5;
 } else {
-    minTimeBetweenCreations = 2300;
-    maxTimeBetweenCreations = 3000;
     ballTransitionDuration = 2400;
     maxWallHeight = 200;
     minWallHeight = 50;
     wallsSpeed = 3;
-    minJumpHeight = 1.1;
-    maxJumpHeight = 1.5;
 }
 let hearts = 3;
 let levelsColors = ["green", "cyan", "deepskyblue", "dodgerblue", "royalblue", "blue", "mediumslateblue", "purple", "red"];
@@ -110,7 +107,7 @@ function moveWalls() {
             wall.remove();
             score++;
             document.querySelector(".score-div span").innerHTML = score;
-            if (!(score % 15)) {
+            if (!(score % wallsPerLevel)) {
                 ratio = wallsSpeed / (wallsSpeed + 1);
                 wallsSpeed++;
                 ballTransitionDuration *= 0.5 + ratio / 2;

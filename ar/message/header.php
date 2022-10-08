@@ -31,7 +31,7 @@ if (isset($_POST["logout"])) {
 	setcookie("token", "", time() - 3600, "/");
 	header("Location: login.php");
 }
-// Exit group if they press logout
+// Exit group if they press exit group
 if (isset($_POST["groupLogout"])) {
 	unset($_SESSION["groupName"]);
 	unset($_SESSION["groupToken"]);

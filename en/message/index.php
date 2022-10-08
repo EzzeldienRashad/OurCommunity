@@ -73,6 +73,20 @@ if (isset($_POST["c2cSubmit"]) && isset($_GET["c2cId"])) {
 		$stmt->execute();
 	}
 }
+//add delete c2cs functionality
+if (isset($_GET["deleteC2cParentId"]) && isset($_GET["deleteC2cId"])) {
+	$delStmt = $pdo->prepare("Select comments FROM b16_32390973_OurCommunity.Comments WHERE id = ?");
+	$delStmt->bindParam(1, $_GET["deleteC2cParentId"], PDO::PARAM_INT);
+	$delStmt->execute();
+	$c2cs = $delStmt->fetchColumn();
+	$c2cs = json_decode(str_replace("\r\n", "\\r\\n", $c2cs), true);
+	array_splice($c2cs, $_GET["deleteC2cId"], 1);
+	$c2cs = json_encode(array_values($c2cs));
+	$delStmt = $pdo->prepare("UPDATE b16_32390973_OurCommunity.Comments SET comments = ? WHERE id = ?");
+	$delStmt->bindParam(1, $c2cs);
+	$delStmt->bindParam(2, $_GET["deleteC2cParentId"], PDO::PARAM_INT);
+	$delStmt->execute();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

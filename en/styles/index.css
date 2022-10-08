@@ -174,10 +174,6 @@ h1 {
 /************** Section 2 ****************/
 #services {
 	font-family: 'Roboto', sans-serif;
-	transform: translateX(100%);
-	opacity: 0;
-    transition-duration: 1s;
-    transition-timing-function: cubic-bezier(.5, 2, .5, 2);
 }
 #services img {
     width: 30%;
@@ -551,11 +547,6 @@ h1 {
 	}
 	.pics-cont img {
 		height: 180px;
-	}
-	#services {
-		transition-duration: 0s;
-		transform: translateX(0);
-		opacity: 1;
 	}
 	.services-desc {
 		padding: 5px;

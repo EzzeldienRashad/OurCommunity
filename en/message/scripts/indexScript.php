@@ -81,7 +81,8 @@ function loadComments() {
                 //create the comments to the comments
                 let c2cCont = document.createElement("div");
                 c2cCont.className = "c2c-cont";
-                for (let c2c of c2cs) {
+                for (let c = 0; c < c2cs.length; c++) {
+                    let c2c = c2cs[c];
                     let c2cDiv = document.createElement("div");
                     let c2cName = c2c.split(":")[0] + ":";
                     let c2cNameSpan = document.createElement("span");
@@ -93,6 +94,13 @@ function loadComments() {
                     for (let c2cPart of c2cArray) {
                         c2cParagraph.appendChild(document.createTextNode(c2cPart));
                         c2cParagraph.appendChild(document.createElement("br"));
+                    }
+                    let hasC2c = c2cName.slice(0, -1) == "<?php echo $name ?>";
+                    if (hasC2c) {
+                        c2cParagraph.insertAdjacentHTML("beforeend", "<i class='fa-solid fa-circle-xmark fa-lg c2c-delete'></i>");
+                        c2cParagraph.querySelector("i").addEventListener("click", function() {
+                            location.href = "?deleteC2cParentId=" + id + "&deleteC2cId=" + c + "&scroll=" + scrollY;
+                        });
                     }
                     c2cDiv.append(c2cParagraph);
                     c2cCont.append(c2cDiv);
@@ -129,7 +137,7 @@ function loadComments() {
                         addingC2c--;
                         if (!addingC2c) {
                             setTimeout(() => loadComments(), 250);
-                            commentInterval = setInterval(loadComments, 3000);
+                            commentInterval = setInterval(loadComments, 5000);
                         }
                     }
                 });
@@ -146,7 +154,7 @@ function loadComments() {
         });
 }
 loadComments();
-let commentInterval = setInterval(loadComments, 3000);
+let commentInterval = setInterval(loadComments, 5000);
 // showing comments area
 document.getElementsByClassName("add-comment")[0].addEventListener("click", function () {
     let commentArea = document.getElementsByClassName("new-comment")[0];

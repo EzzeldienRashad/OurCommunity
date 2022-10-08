@@ -1,4 +1,3 @@
-solve arabic text problems
 add "delete c2c"
 make groups list searchable and enterable (after entering password for the selected group)
 allow mailing to other users
@@ -11,3 +10,5 @@ add settings page containing user info, email options, user picture
 add forgot password which redirects to a page that sends an email (after clicking a button) containing a password
 after signup redirect to a page to collect more information if the user wants like birthdate
 add error pages for could not connect to database/page not found/process not allowed
+secure the website!
+solve arabic text problems
