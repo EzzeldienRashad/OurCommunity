@@ -94,28 +94,6 @@ if (document.getElementById("slider")) {
     }
     moveSlider(0);
 }
-if (document.getElementById("services")) {
-    addEventListener("scroll", function showServices() {
-        if (window.pageYOffset + document.documentElement.clientHeight >= 
-            document.documentElement.scrollTop + document.getElementById("services").getBoundingClientRect().top) {
-                document.getElementById("services").style.transform = "translateX(0)";
-                document.getElementById("services").style.opacity = "1";
-                removeEventListener("scroll", showServices);
-            }
-    });
-}
-if (document.getElementById("offers")) {
-    addEventListener("scroll", function showOffers() {
-        if (window.pageYOffset + document.documentElement.clientHeight >= 
-            document.documentElement.scrollTop + document.getElementById("offers").getBoundingClientRect().top) {
-                document.getElementById("offers-title").style.transform = "translateY(0)";
-                document.getElementById("offers-title").style.opacity = "1";
-                document.getElementById("offers").style.transform = "translateY(0)";
-                document.getElementById("offers").style.opacity = "1";
-                removeEventListener("scroll", showOffers);
-            }
-    });
-}
 if (document.getElementById("faq")) {
     let accordions = document.getElementsByClassName("accordion");
     for (let i = 0; i < accordions.length; i++) {

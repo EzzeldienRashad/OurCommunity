@@ -29,8 +29,6 @@ if (isset($_POST["submit"])) {
 		$_SESSION["nameErr"] = "*name too long";
 	} else if (strlen($_POST["name"]) < 3) {
 		$_SESSION["nameErr"] = "*name too short";
-	} else if (!preg_match("/^[\w\d\s_]+$/", $_POST["name"])) {
-		$_SESSION["nameErr"] = "*name has unallowed characters";
 	} else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 		$_SESSION["emailErr"] = "*Email not valid";
 	} else {

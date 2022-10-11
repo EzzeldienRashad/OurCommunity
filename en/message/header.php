@@ -27,8 +27,12 @@ if (isset($name) && isset($token)) {
 if (isset($_POST["logout"])) {
 	unset($_SESSION["name"]);
 	unset($_SESSION["token"]);
+	unset($_SESSION["groupName"]);
+	unset($_SESSION["groupToken"]);
 	setcookie("name", "", time() - 3600, "/");
 	setcookie("token", "", time() - 3600, "/");
+	setcookie("groupName", "", time() - 3600, "/");
+	setcookie("groupToken", "", time() - 3600, "/");
 	header("Location: login.php");
 }
 // Exit group if they press exit group

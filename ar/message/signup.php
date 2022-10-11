@@ -29,8 +29,6 @@ if (isset($_POST["submit"])) {
 		$_SESSION["nameErr"] = "اﻹسم طويل جدًا*";
 	} else if (strlen($_POST["name"]) < 3) {
 		$_SESSION["nameErr"] = "اﻹسم قصير جدًا*";
-	} else if (!preg_match("/^[\w\d\s_]+$/", $_POST["name"])) {
-		$_SESSION["nameErr"] = "غير مسموح برموز خاصة*";
 	} else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 		$_SESSION["emailErr"] = "اﻹيميل به أخطاء*";
 	} else {

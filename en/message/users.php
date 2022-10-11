@@ -30,19 +30,22 @@ include "header.php";
 	<span></span>
 </div>
 <div class="dropdown">
-<a href="../">main page</a>
-<a href="users.php">other users</a>
-<a href="users.php?groups=true">groups</a>
-<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="logout" value="logout" />
-</form>
-<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="groupLogout" value="Exit group" />
-</form>
+	<a href="../">main page</a>
+	<a href="users.php">other users</a>
+	<a href="users.php?groups=true">groups</a>
+	<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+		<input type="submit" name="logout" value="logout" />
+	</form>
+	<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+		<input type="submit" name="groupLogout" value="Exit group" />
+	</form>
 </div>
 </header>
 <body>
 <main>
+<label class="search">Search: 
+	<input type="search" placeholder="Search..." class="search-input" />
+</label>
 <?php
 // show users/groups present in database
 $dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";

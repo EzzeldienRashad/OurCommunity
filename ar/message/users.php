@@ -30,20 +30,23 @@ include "header.php";
 	<span></span>
 </div>
 <div class="dropdown">
-<a href="../">الصفحة الرئيسية</a>
-<a href="index.php">غرفة المحادثة</a>
-<a href="users.php">مستخدمين آخرين</a>
-<a href="users.php?groups=true">المجموعات</a>
-<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="logout" value="تسجيل خروج" />
-</form>
-<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="groupLogout" value="الخروج من المجموعة" />
-</form>
+	<a href="../">الصفحة الرئيسية</a>
+	<a href="index.php">غرفة المحادثة</a>
+	<a href="users.php">مستخدمين آخرين</a>
+	<a href="users.php?groups=true">المجموعات</a>
+	<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+		<input type="submit" name="logout" value="تسجيل خروج" />
+	</form>
+	<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+		<input type="submit" name="groupLogout" value="الخروج من المجموعة" />
+	</form>
 </div>
 </header>
 <body>
 <main>
+<label class="search">بحث: 
+	<input type="search" placeholder="بحث..." class="search-input" />
+</label>
 <?php
 // show users/groups present in database
 $dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";

@@ -193,10 +193,7 @@ h1 {
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 20px;
 	justify-content: space-around;
-	transform: translateY(200px);
-	opacity: 0;
     padding: 0 20px;
-    transition-duration: 1s;
 }
 #offers-title {
 	font-size: 50px;
@@ -204,9 +201,6 @@ h1 {
 	margin: 0 0 40px;
 	text-decoration: underline blue dotted 5px;
 	text-underline-offset: 30px;
-	transform: translateY(200px);
-	opacity: 0;
-    transition-duration: 1s;
 }
 .offer {
 	background-color: #f8f8f8;
