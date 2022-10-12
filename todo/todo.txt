@@ -1,4 +1,5 @@
 make groups list searchable and enterable (after entering password for the selected group)
+add "delete group/delete account"
 allow mailing to other users
 add music to games
 add google, facebook login

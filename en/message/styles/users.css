@@ -17,6 +17,25 @@ h2 {
 label.search {
     margin: 10px;
 }
+.err {
+    background-color: rgb(255, 220, 226);
+    color: red;
+    display: block;
+    text-align: center;
+    margin: 10px;
+    font-size: 15px;
+}
+.password-eye {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.password-cont {
+    position: relative;
+    display: inline-block;
+}
 /***************** other devices ******************/
 @media only screen and (max-width: 750px) {
 

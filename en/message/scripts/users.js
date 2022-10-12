@@ -16,3 +16,29 @@ search.addEventListener("input", function () {
         }
     }
 });
+document.addEventListener("click", function (event) {
+    // Delete errors when user begins writing
+    let div = event.target.closest("div.user");
+    let form;
+    let eye;
+    if (div) {
+        form = div.querySelector("form");
+        eye = div.querySelector("span.password-eye");
+    }
+    if (form) {
+        form.hidden = false;
+        form.oninput = function () {
+            document.getElementById("loginNameErr").innerHTML = "";
+        }
+        form.oninput = function () {
+            document.getElementById("loginPasswordErr").innerHTML = "";
+        }
+        // toggle password visibility
+        setTimeout(function () {
+            eye.onclick = function () {
+                form.loginGroupPassword.setAttribute("type", 
+                form.loginGroupPassword.getAttribute("type") == "password" ? "text" : "password");
+            };
+        }, 0);
+    }
+});

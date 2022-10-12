@@ -1,6 +1,28 @@
 <?php 
 session_start(); 
 include "header.php";
+//check for errors, then enter group
+if (isset($_POST["loginGroupSubmit"])) {
+	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
+	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
+	$stmt = $pdo->prepare("SELECT * FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
+	$stmt->execute([$_POST["loginGroupName"]]);
+	$info = $stmt->fetch();
+	if ($info) {
+		if (!password_verify($_POST["loginGroupPassword"],  $info["groupPassword"])) {
+			$_SESSION["loginPasswordErr"] = True;
+		} else {
+			$_SESSION["groupName"] = $_POST["loginGroupName"];
+			$_SESSION["groupToken"] = $info["groupToken"];
+			setcookie("groupName", $_POST["loginGroupName"], time() + 86400 * 30, "/");
+			setcookie("groupToken", $info["groupToken"], time() + 86400 * 30, "/");
+			header("Location: index.php");
+			exit;
+		}
+	} else {
+		$_SESSION["loginNameErr"] = TRUE;
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -48,6 +70,12 @@ include "header.php";
 	<input type="search" placeholder="بحث..." class="search-input" />
 </label>
 <?php
+echo '<div id="loginNameErr" class="err">';
+if (isset($_SESSION["loginNameErr"])) {echo "*اسم المجموعة خاطئ"; unset($_SESSION["loginNameErr"]);}
+echo '</div>';
+echo '<div id="loginPasswordErr" class="err">';
+if (isset($_SESSION["loginPasswordErr"])) {echo "*كلمة السر خطأ"; unset($_SESSION["loginPasswordErr"]);};
+echo '</div>';
 // show users/groups present in database
 $dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 $pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));	
@@ -55,8 +83,28 @@ if (isset($_GET["groups"]) && $_GET["groups"] == "true") {
 	echo "<h2>المجموعات:</h2>";
 	$stmt = $pdo->query("SELECT groupName FROM b16_32390973_OurCommunity.Groups");
 	$groups = $stmt->fetchAll(PDO::FETCH_COLUMN);
-	foreach ($groups as $group) {
-		echo "<div class='user'>" . $group . "</div>";
+	for ($i = 0; $i < count($groups); $i++) {
+		$group = $groups[$i];
+		echo '
+		<div class="user">' . $group . '
+			<br />
+			<form name="joinGroupFields" class="join-group-fields" method="post" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '?groups=true&groupNum=' . $i . '" hidden>
+				<input type="text" name="loginGroupName" id="loginGroupName" value="' . $group . '" hidden />
+				<br />
+				<label>
+					كلمة السر: 
+					<br />
+					<div class="password-cont">
+						<input type="password" size="30" name="loginGroupPassword" id="loginGroupPassword" placeholder="كلمة السر"/>
+						<span class="password-eye login-eye">&#128065;</span>
+					</div>
+				</label>
+				<br />
+				<br />
+				<input type="submit" size="30" name="loginGroupSubmit" value="دخول"/>
+			</form>
+		</div>
+		';
 	}
 } else {
 	echo "<h2>المستخدمين:</h2>";
