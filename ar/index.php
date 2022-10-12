@@ -53,10 +53,18 @@
                 </div>
             </div><div class="moving-slider">
                 <div class="pics-cont">
-                    <img src="../images/mainImages/logo.webp" alt="مجتمعنا" width="400" height="320" />
-                    <img src="../images/mainImages/games.webp" alt="لعب" width="400" height="320" />
-                    <img src="../images/mainImages/message.webp" alt="شات" width="400" height="320" />
-                    <img src="../images/mainImages/logo.webp" alt="مجتمعنا" width="400" height="320" />
+                    <a href="services.php">
+                        <img src="../images/mainImages/logo.webp" alt="مجتمعنا" width="400" height="320" />
+                    </a>
+                    <a href="games">
+                        <img src="../images/mainImages/games.webp" alt="لعب" width="400" height="320" />
+                    </a>
+                    <a href="message">
+                        <img src="../images/mainImages/message.webp" alt="شات" width="400" height="320" />
+                    </a>
+                    <a href="services.php">
+                        <img src="../images/mainImages/logo.webp" alt="مجتمعنا" width="400" height="320" />
+                    </a>
                 </div>
             </div>
         </section>
@@ -73,7 +81,7 @@
         </section>
         <h2 id="offers-title">ما نقدمه</h2>
         <section id="offers">
-            <div class="offer">
+            <a class="offer" href="message">
                 <div class="offer-pic">
                     <i class="fa-solid fa-comment"></i>
                 </div>
@@ -82,8 +90,8 @@
                     نظام دردشة فورى يتيح التواصل مع أى شخص حول العالم, باﻹضاقة ﻹمكانية إرسال اﻹيميلات, اﻹعجاب بتعليق أو حذفه, 
                     أو التعليق على تعليق آخر.
                 </p>
-            </div>
-            <div class="offer">
+            </a>
+            <a class="offer" href="games">
                 <div class="offer-pic">
                     <i class="fa-solid fa-gamepad" ></i>
                 </div>
@@ -91,7 +99,7 @@
                 <p class="offer-desc">
                     هناك العديد من اﻷلعاب التى يقدمها الموقع, مما يتيح لك القضاء على الملل واﻹستمتاع بوقتك.
                 </p>
-            </div>
+            </a>
             <div class="offer">
                 <div class="offer-pic">
                     <i class="fa-solid fa-users"></i>

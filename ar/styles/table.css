@@ -70,19 +70,6 @@ td a:hover {
 @media only screen and (max-width: 820px) {
 
     .image-cont img {
-        max-width: 150px;
-        max-height: 150px;
-    }
-    .image-cont {
-        width: 150px;
-        height: 150px;       
-    }
-    
-}
-
-@media only screen and (max-width: 560px) {
-
-    .image-cont img {
         max-width: 100px;
         max-height: 100px;
     }

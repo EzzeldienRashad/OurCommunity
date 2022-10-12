@@ -53,10 +53,18 @@
                 </div>
             </div><div class="moving-slider">
                 <div class="pics-cont">
-                    <img src="../images/mainImages/logo.webp" alt="OurCommunity" width="400" height="320" />
-                    <img src="../images/mainImages/games.webp" alt="game" width="400" height="320" />
-                    <img src="../images/mainImages/message.webp" alt="chat" width="400" height="320" />
-                    <img src="../images/mainImages/logo.webp" alt="OurCommunity" width="400" height="320" />
+                    <a href="services.php">
+                        <img src="../images/mainImages/logo.webp" alt="OurCommunity" width="400" height="320" />
+                    </a>
+                    <a href="games">
+                        <img src="../images/mainImages/games.webp" alt="game" width="400" height="320" />
+                    </a>
+                    <a href="message">
+                        <img src="../images/mainImages/message.webp" alt="chat" width="400" height="320" />
+                    </a>
+                    <a href="services.php">
+                        <img src="../images/mainImages/logo.webp" alt="OurCommunity" width="400" height="320" />
+                    </a>
                 </div>
             </div>
         </section>
@@ -74,7 +82,7 @@
         </section>
         <h2 id="offers-title">what we offer</h2>
         <section id="offers">
-            <div class="offer">
+            <a class="offer" href="message">
                 <div class="offer-pic">
                     <i class="fa-solid fa-comment"></i>
                 </div>
@@ -83,8 +91,8 @@
                     A real-time chat system that allows anybody allover the world to communicate with his friends instantly
                     and send them emails with a lot of options that allow you to love a comment, delete a comment, or comment to a comment.
                 </p>
-            </div>
-            <div class="offer">
+            </a>
+            <a class="offer" href="games">
                 <div class="offer-pic">
                     <i class="fa-solid fa-gamepad" ></i>
                 </div>
@@ -94,7 +102,7 @@
                     You can choose between games that were made by professional enthusiastic web developers for you.
                     An errors-free experience with games that are constantly updated to allow you to have the best playing experience.
                 </p>
-            </div>
+            </a>
             <div class="offer">
                 <div class="offer-pic">
                     <i class="fa-solid fa-users"></i>

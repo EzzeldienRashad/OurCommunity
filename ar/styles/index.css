@@ -642,6 +642,15 @@ h1 {
     h3 {
         font-size: 16px;
     }
+    #services img {
+        width: 50%;
+    }
+    #offers {
+        grid-template-columns: 1fr;
+    }
+    .offer {
+        width: 75vw;
+    }
     .image-cont img {
         max-width: 100px;
         max-height: 100px;

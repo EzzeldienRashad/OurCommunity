@@ -1,5 +1,6 @@
 make groups list searchable and enterable (after entering password for the selected group)
 allow mailing to other users
+add music to games
 add google, facebook login
 secure the website!
 send email on signup that contains a welcome message and user information

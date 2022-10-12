@@ -2,7 +2,7 @@
 let main = document.getElementsByTagName("main")[0];
 let table = document.getElementsByClassName("items-table")[0];
 if (table) {
-    if (document.documentElement.offsetWidth <= 560 || 
+    if (document.documentElement.offsetWidth <= 820 || 
         (main.offsetWidth / main.offsetHeight < 1.3 && 
         document.getElementsByTagName("main")[0].querySelectorAll("td").length < 4)) {
         for (let img of table.querySelectorAll("td > *")) {
