@@ -12,12 +12,15 @@ if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {
 if (isset($groupName) && isset($groupToken)) {
 	$dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";
 	$pdo = new PDO($dsn, "b16_32390973", "1e2z3z4e5l@G", array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));	
-	$stmt = $pdo->prepare("SELECT groupToken FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
+	$stmt = $pdo->prepare("SELECT groupToken, owner FROM b16_32390973_OurCommunity.Groups WHERE groupName = ?");
 	$stmt->execute([$groupName]);
-	$resultGroupToken = $stmt->fetchColumn();
+	$info = $stmt->fetch();
+	$resultGroupToken = $info["groupToken"];
 	if (!$resultGroupToken || $resultGroupToken != $groupToken) {
 		header("Location: groups.php");
 		exit;
+	} else {
+		$owner = $info["owner"] == $name;
 	}
 } else {
 	header("location: groups.php");
@@ -117,16 +120,21 @@ if (isset($_GET["deleteC2cParentId"]) && isset($_GET["deleteC2cId"])) {
 	<span></span>
 </div>
 <div class="dropdown">
-<a href="../">الصفحة الرئيسية</a>
-<a href="index.php">غرفة المحادثة</a>
-<a href="users.php">مستخدمين آخرين</a>
-<a href="users.php?groups=true">المجموعات</a>
-<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="logout" value="تسجيل خروج" />
-</form>
-<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
-	<input type="submit" name="groupLogout" value="الخروج من المجموعة" />
-</form>
+	<a href="../">الصفحة الرئيسية</a>
+	<a href="index.php">غرفة المحادثة</a>
+	<a href="users.php">مستخدمين آخرين</a>
+	<a href="users.php?groups=true">المجموعات</a>
+	<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+		<input type="submit" name="logout" value="تسجيل خروج" />
+	</form>
+	<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
+		<input type="submit" name="groupLogout" value="الخروج من المجموعة" />
+	</form>
+	<?php
+	if ($owner) {
+		echo '<a href="gSettings.php">اعدادات المجموعة</a>';
+	}
+	?>
 </div>
 </header>
 <main>

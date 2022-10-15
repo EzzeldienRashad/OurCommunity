@@ -1,0 +1,15 @@
+section {
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid orange;
+}
+.danger-section {
+    border: 5px solid red;
+}
+.delete {
+    border: none;
+    font-size: 30px;
+    color: rebeccapurple;
+    background-color: transparent;
+    cursor: pointer;
+}

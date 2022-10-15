@@ -39,9 +39,9 @@ if (isset($_POST["signupGroupSubmit"])) {
 			$_SESSION["signupNameErr"] = "*group already exists";
 		} else {
 			$token = bin2hex(random_bytes(16));
-            $stmt = $pdo->prepare("INSERT INTO b16_32390973_OurCommunity.Groups (groupName, groupPassword, groupToken)
-            VALUES (?, '" . password_hash($_POST["signupGroupPassword"], PASSWORD_DEFAULT) . "', '" . $token . "')");
-            $stmt->execute([$_POST["signupGroupName"]]);
+            $stmt = $pdo->prepare("INSERT INTO b16_32390973_OurCommunity.Groups (groupName, groupPassword, groupToken, owner)
+            VALUES (?, '" . password_hash($_POST["signupGroupPassword"], PASSWORD_DEFAULT) . "', '" . $token . "', ?)");
+            $stmt->execute([$_POST["signupGroupName"], $name]);
             $_SESSION["groupName"] = $_POST["signupGroupName"];
             $_SESSION["groupToken"] = $token;
             setcookie("groupName", $_POST["signupGroupName"], time() + 86400 * 30, "/");
