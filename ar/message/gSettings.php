@@ -74,7 +74,6 @@ if (isset($_GET["gDelete"])) {
 	<span></span>
 </div>
 <div class="dropdown">
-<div class="dropdown">
 	<a href="../">الصفحة الرئيسية</a>
 	<a href="users.php">مستخدمين آخرين</a>
 	<a href="users.php?groups=true">المجموعات</a>
@@ -84,7 +83,6 @@ if (isset($_GET["gDelete"])) {
 	<form class="logout" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">  
 		<input type="submit" name="groupLogout" value="الخروج من المجموعة" />
 	</form>
-</div>
 </div>
 </header>
 <main>
