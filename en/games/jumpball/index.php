@@ -53,9 +53,9 @@
                     PLAY AGAIN!!!
                 </button>
             </div>
+            <i class="fa-solid fa-volume-xmark fa-lg music"></i>
         </div>
     </div>
-
     </main>
     <footer>
         <div class="footer-links">

@@ -1,7 +1,11 @@
+gameStarted = 0;
 document.getElementById("play").addEventListener("click", function play() {
+gameStarted = 1;
 document.getElementById("play").style.display = "none";
-
-//pollyfill
+if (musicPlaying) {
+    music.play();
+}
+//pollyfills
 window.requestAnimationFrame = window.requestAnimationFrame
     || window.mozRequestAnimationFrame
     || window.webkitRequestAnimationFrame
@@ -68,9 +72,9 @@ displayHearts();
 createWalls();
 document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-        clearTimeout(wallsTimeout);
-    } else {
-        createWalls();
+        stop()
+    } else if (!lost) {
+        continuePlaying();
     }
 });
 let moveWallsAF = requestAnimationFrame(moveWalls);
@@ -88,17 +92,17 @@ function displayHearts() {
     }
 }
 
-function createWalls() {
-    wallsTimeout = setTimeout(function makeWall() {
-        let wall = document.createElement("div");
-        wall.className = "wall";
-        wall.style.height = minWallHeight + Math.random() * (maxWallHeight - minWallHeight) + "px";
-        wall.style.backgroundColor = wallColor;
-        frame.append(wall);
-        wallsTimeout = setTimeout(() => makeWall(), Math.random() * (maxTimeBetweenCreations - minTimeBetweenCreations) + minTimeBetweenCreations);
-    }, Math.random() * (maxTimeBetweenCreations - minTimeBetweenCreations) + minTimeBetweenCreations);
+function makeWall() {
+    let wall = document.createElement("div");
+    wall.className = "wall";
+    wall.style.height = minWallHeight + Math.random() * (maxWallHeight - minWallHeight) + "px";
+    wall.style.backgroundColor = wallColor;
+    frame.append(wall);
+    wallsTimeout = setTimeout(() => makeWall(), Math.random() * (maxTimeBetweenCreations - minTimeBetweenCreations) + minTimeBetweenCreations);
 }
-
+function createWalls() {
+    wallsTimeout = setTimeout(makeWall, Math.random() * (maxTimeBetweenCreations - minTimeBetweenCreations) + minTimeBetweenCreations);
+}
 function moveWalls() {
     if (lost) return;
     for (let wall of document.getElementsByClassName("wall")) {
@@ -132,12 +136,7 @@ function moveWalls() {
         if (wall1.offsetLeft <= ball.offsetLeft + ball.offsetWidth && 
             wall1.offsetTop < ball.offsetTop + ball.offsetHeight && 
             wall1.offsetLeft + wall1.offsetWidth > ball.offsetLeft) {
-            cancelAnimationFrame(moveWallsAF);
-            clearTimeout(wallsTimeout);
-            frame.removeEventListener("click", moveBall);
-            lost = true;
-            ball.style.bottom = frame.clientHeight - (ball.offsetTop + ball.offsetHeight) + "px";
-            setTimeout(lose, 1000);
+            lose();
         } else {
             moveWallsAF = requestAnimationFrame(moveWalls);
         }
@@ -153,11 +152,12 @@ function moveWalls() {
     }
 }
 
-function moveBall() {
-    if (lost) return;
+function moveBall(event) {
+    if (lost || event.target.classList.contains("music")) return;
     frame.removeEventListener("click", moveBall);
     ball.style.transitionTimingFunction = "ease-out";
     ball.style.bottom = maxWallHeight * (Math.random() * (maxJumpHeight - minJumpHeight) + minJumpHeight) + "px";
+    if (musicPlaying) bounce.play();
     setTimeout(function () {
         if (lost) return;
         ball.style.transitionTimingFunction = "ease-in";
@@ -166,29 +166,95 @@ function moveBall() {
     }, ballTransitionDuration / 3);
 }
 
-function lose() {
-    if (hearts) {
-        hearts--;
-        displayHearts();
-        createWalls();
-        frame.addEventListener("click", moveBall);
-        lost = false;
-        for (let i = 0; i < document.getElementsByClassName("wall").length; i++) {
-            document.getElementsByClassName("wall")[0].remove();
-            i--;
-        }
-        ball.style.transitionDuration = "0s";
-        ball.style.bottom = "0";
-        setTimeout(() => ball.style.transitionDuration = ballTransitionDuration / 3000 + "s", 0);
-        moveWallsAF = requestAnimationFrame(moveWalls);
-    } else {
-        document.getElementById("replay").querySelector("button span").innerHTML = score;
-        document.getElementById("replay").style.display = "block";
-    }
+function stop() {
+    music.pause();
+    cancelAnimationFrame(moveWallsAF);
+    clearTimeout(wallsTimeout);
+    frame.removeEventListener("click", moveBall);
+    ball.style.bottom = frame.clientHeight - (ball.offsetTop + ball.offsetHeight) + "px";
 }
 
+function continuePlaying() {
+    if (musicPlaying) music.play();
+    moveWallsAF = requestAnimationFrame(moveWalls);
+    createWalls();
+    frame.addEventListener("click", moveBall);
+    ball.style.bottom = "0";
+}
+
+function lose() {
+    if (musicPlaying) loseSound.play();
+    stop();
+    lost = true;
+    setTimeout(function () {
+        if (hearts) {
+            hearts--;
+            displayHearts();
+            lost = false;
+            for (let i = 0; i < document.getElementsByClassName("wall").length; i++) {
+                document.getElementsByClassName("wall")[0].remove();
+                i--;
+            }
+            ball.style.transitionDuration = "0s";
+            continuePlaying()
+            setTimeout(() => ball.style.transitionDuration = ballTransitionDuration / 3000 + "s", 0);
+        } else {
+            document.getElementById("replay").querySelector("button span").innerHTML = score;
+            document.getElementById("replay").style.display = "block";
+            music.muted = true;
+        }
+    }, 1000);
+}
+//replay
 document.querySelector("#replay button").addEventListener("click", function () {
     location.reload();
 });
-
 });
+//add music
+musicPlaying = false;
+let music = document.createElement("audio");
+music.setAttribute("src", "../../../music/jumpball.mp3");
+music.setAttribute("autoplay", true);
+music.setAttribute("loop", true);
+music.pause();
+let speaker = document.getElementsByClassName("music")[0];
+if (getCookie("music") == "on") {
+    speaker.classList.remove("fa-volume-xmark");
+    speaker.classList.add("fa-volume-high");
+    musicPlaying = true;
+}
+speaker.addEventListener("click", function () {
+    if (speaker.classList.contains("fa-volume-high")) {
+        speaker.classList.remove("fa-volume-high");
+        speaker.classList.add("fa-volume-xmark");
+        musicPlaying = false;
+        document.cookie = "music=off; max-age=" + 60 * 60 * 24 * 30;
+    } else {
+        speaker.classList.remove("fa-volume-xmark");
+        speaker.classList.add("fa-volume-high");
+        musicPlaying = true;
+        document.cookie = "music=on; max-age=" + 60 * 60 * 24 * 30;
+    }
+    if (musicPlaying && gameStarted) {
+        music.play();
+    } else if (!musicPlaying && gameStarted) {
+        music.pause();
+        music.currentTime = 0;
+    }
+});
+let bounce = document.createElement("audio");
+bounce.setAttribute("src", "../../../music/bounce.mp3");
+let loseSound = document.createElement("audio");
+loseSound.setAttribute("src", "../../../music/lose.mp3");
+
+//main functions
+function getCookie(name) {
+    let cookies = document.cookie.split(";");
+    for (let cookie of cookies) {
+        let cookieArr = cookie.split("=");
+        if (name == cookieArr[0].trim()) {
+            return cookieArr[1].trim();
+        }
+    }
+    return null;
+}

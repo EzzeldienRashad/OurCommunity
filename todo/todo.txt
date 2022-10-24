@@ -1,8 +1,9 @@
+make pause button for the game
+add google, facebook login
 add "delete account"
 add a link in the header to index.php
 allow mailing to other users
 add music to games
-add google, facebook login
 add "my groups"
 add "change group color" in gSettings
 add uSettings for user settings
