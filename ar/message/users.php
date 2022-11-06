@@ -1,5 +1,4 @@
 <?php 
-session_start(); 
 include "header.php";
 //check for errors, then enter group
 if (isset($_POST["loginGroupSubmit"])) {

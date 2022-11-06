@@ -1,5 +1,4 @@
 <?php 
-session_start(); 
 include "header.php";
 //check if user is already in a group
 if (isset($_SESSION["groupName"]) && isset($_SESSION["groupToken"])) {

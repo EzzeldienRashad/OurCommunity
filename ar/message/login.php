@@ -78,6 +78,20 @@ if (isset($_POST["submit"])) {
 			<span class="password-eye">&#128065;</span>
 			<div id="passwordErr" class="err"><?php if (isset($_SESSION["passwordErr"])) {echo "كلمة سر خطأ"; unset($_SESSION["passwordErr"]);} ?></div>
 		</div>
+		<script src="https://accounts.google.com/gsi/client" async defer></script>
+		<div id="g_id_onload"
+			data-client_id="368121326006-dm1as132picum16rhrve2dfnf2fv57p4.apps.googleusercontent.com"
+			data-login_uri="<?php echo dirname($_SERVER["PHP_SELF"]) ?>/googleSignin.php"
+			data-auto_prompt="false">
+		</div>
+		<div class="g_id_signin"
+			data-type="standard"
+			data-size="large"
+			data-theme="outline"
+			data-text="sign_in_with"
+			data-shape="rectangular"
+			data-logo_alignment="left">
+		</div>
 		<input type="submit" name="submit" class="submit" value="تسجيل الدخول" />
 		<div class="remember-div">
 			<label>

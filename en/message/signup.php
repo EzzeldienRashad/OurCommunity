@@ -50,7 +50,6 @@ if (isset($_POST["submit"])) {
 				$stmt = $pdo->prepare("INSERT INTO b16_32390973_OurCommunity.Users (name, email, password, token)
 				VALUES (?, ?, '" . password_hash($_POST["password"], PASSWORD_DEFAULT) . "', '" . $token . "')");
 				$stmt->execute([$_POST["name"], $_POST["email"]]);
-				$_SESSION["name"] = $name;
 				$_SESSION["token"] = $token;
 				header("Location: index.php");
 				exit;

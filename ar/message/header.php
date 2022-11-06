@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Check if user doesn't exist
 if (isset($_SESSION["name"]) && isset($_SESSION["token"])) {
 	$name = $_SESSION["name"];

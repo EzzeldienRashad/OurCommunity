@@ -1,7 +1,8 @@
-loadItems:
+using composer - google apiclient
+loadItems.php:
 $jsonFile: place of the json file
-$imagesFolder: place of the ../images files
-$isLink: are the items links or just ../images
+$imagesFolder: place of the images files
+$isLink: are the items links or just images
 $lang: language, either ar or en
 
 json files:
@@ -15,6 +16,14 @@ arPicture
 enPicture
 href
 jsonFile (if it is a link to another page)
+
+**If you downloaded this project, then do the following:
+1-php composer.phar update
+2-make database b16_32390973_OurCommunity password 1e2z3z4e5l@G with tables:
+Groups: id, groupName, groupPassword, groupToken, owner
+Comments: id, name, body, date, lovers, comments, groupName
+Users: id, name, email, password, token
+3-When you upload, make sure filters are truned off in filezilla the first time you upload.
 
 ** to upload, replace:
 localhsot , sql308.byethost16.com
