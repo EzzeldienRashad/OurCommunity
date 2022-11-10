@@ -39,12 +39,20 @@
         </nav>
     </header>
     <main>
-        <h2 class="green"> About OurCommunity</h2>
+        <h2> About OurCommunity</h2>
         <p>
             Welcome to OurCommunity, the best choise for playing and meeting friends!
             In this website, we offer a lot of features for you to defeat boredom and communicate with your friends form anywhere.
             You can choose from a variety of options to have fun.
             We always try to improve ourselves and give our users the best service.
+        </p>
+        <h2>Privacy Policy</h2>
+        <p>
+            Keeping our users' privacy is one of the first things we care about. You can feel safe when giving us your information. 
+            You won't be asked to give personal information unless you enter our chat rooms. 
+            You will need to enter your name, email and make a strong password. 
+            We only need these information to remember the users and store them in our databases 
+            and make sure no one tries to steal another person's information and enter using their account. 
         </p>
     </main>
     <footer>

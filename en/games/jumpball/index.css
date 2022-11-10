@@ -99,6 +99,9 @@
 @media only screen and (max-width: 560px) {
     header nav {
         top: 35px;
-        right: 5px;
+        left: 5px;
+    }
+    .frame-cont img {
+        width: auto;
     }
 }
