@@ -8,8 +8,8 @@ $pCsrfToken = $_POST["g_csrf_token"];
 if (!$cCsrfToken || !$pCsrfToken || $cCsrfToken != $pCsrfToken) {
     header("location: login.php");
 } else {
-    require_once "vendor/autoload.php";
-    $client = new Google_Client(["client_id" => "368121326006-dm1as132picum16rhrve2dfnf2fv57p4.apps.googleusercontent.com"]);
+    require_once "../../vendor/autoload.php";
+    $client = new Google_Client(["client_id" => "368121326006-pj9as4v7mtp2gbfi1dk5376sstqu0oss.apps.googleusercontent.com"]);
     $payload = $client->verifyIdToken($_POST["credential"]);
     if ($payload) {
         $dsn = "mysql:host=localhost;dbname=b16_32390973_OurCommunity";

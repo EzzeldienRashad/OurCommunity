@@ -1,0 +1,18 @@
+{
+  "require": {
+    "google/apiclient": "2.13.0"
+  },
+  "scripts": {
+    "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+  },
+  "extra": {
+    "google/apiclient-services": [
+      "Oauth2"
+    ]
+  },
+  "config": {
+    "platform": {
+      "php": "7.4.8"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-check website using lighthouse
+use fontawesome locally
 add facebook login
 add google one tap
 add phone login

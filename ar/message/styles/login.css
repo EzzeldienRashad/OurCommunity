@@ -98,6 +98,11 @@ hr {
 .form a:hover {
 	background-color: darkgreen;
 }
+.g_id_signin iframe {
+	right: 50% !important;
+	left: auto !important;
+	transform: translateX(50%);
+}
 /****************** footer *******************/
 footer a {
 	margin: 10px;

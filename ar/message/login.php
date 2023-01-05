@@ -85,6 +85,23 @@ if (isset($_POST["submit"])) {
 			</label>
 		</div>
 	</form>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<div id="g_id_onload"
+		data-client_id="368121326006-pj9as4v7mtp2gbfi1dk5376sstqu0oss.apps.googleusercontent.com"
+		data-context="signin"
+		data-ux_mode="popup"
+		data-login_uri="<?php echo pathinfo(htmlspecialchars($_SERVER["PHP_SELF"]), PATHINFO_DIRNAME); ?>/googleSignin.php"
+		data-auto_prompt="false">
+	</div>
+
+	<div class="g_id_signin"
+		data-type="standard"
+		data-shape="rectangular"
+		data-theme="outline"
+		data-text="signin_with"
+		data-size="large"
+		data-logo_alignment="left">
+	</div>
 	<div class="relative">
 		<hr />
 		<div class="or">أو</div>
