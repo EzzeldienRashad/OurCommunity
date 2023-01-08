@@ -1,18 +1,16 @@
-use fontawesome locally
-add facebook login
+add link to main page in footer
 add google one tap
+add a link in the message header to index.php
+add facebook login
 add phone login
 secure the website!
 add error pages for could not connect to database/page not found/process not allowed
 make pause button for the game
-add "delete account"
-add a link in the header to index.php
+use fontawesome locally after seeing if it is good
+add uSettings for user settings: info, email, picture
+add to "groups settings": change group color
 allow mailing to other users
-add "my groups"
-add "change group color" in gSettings
-add uSettings for user settings
-send email on signup that contains a welcome message and user information
 add friend request and send email on friend request (talking in a private page)
-add settings page containing user info, email options, user picture
-add forgot password which redirects to a page that sends an email (after clicking a button) containing a password
 after signup redirect to a page to collect more information if the user wants like birthdate
+send email on signup that contains a welcome message and user information
+add forgot password which redirects to a page that sends an email (after clicking a button) to reset password

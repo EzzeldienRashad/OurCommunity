@@ -41,7 +41,11 @@ if (isset($_POST["submit"])) {
 				setcookie("name", $info["name"], time() + 86400 * 30, "/");
 				setcookie("token", $token, time() + 86400 * 30, "/");
 			}
-			header("Location: index.php");
+			if (isset($_GET["page"]) && $_GET["page"] == "main") {
+				header("Location: ../");
+			} else {
+				header("Location: index.php");
+			}
 			exit;
 		}
 	} else {
@@ -70,7 +74,7 @@ if (isset($_POST["submit"])) {
 <h1>OurCommunity</h1>
 <div class="form">
 Log in to OurCommunity<br />
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); if (isset($_GET["page"]) && $_GET["page"] == "main") echo "?page=main" ?>">
 		<input type="email" name="email" placeholder="Email address" autocomplete="email" style="<?php if (isset($_SESSION["emailErr"])) echo "border-color: red"; ?>" value="<?php if (isset($_SESSION["email"])) echo $_SESSION["email"]; ?>" />
 		<div id="emailErr" class="err"><?php if (isset($_SESSION["emailErr"])) {echo "Wrong Email"; unset($_SESSION["emailErr"]);} ?></div>
 		<div class="password-cont">
@@ -90,7 +94,11 @@ Log in to OurCommunity<br />
 		data-client_id="368121326006-pj9as4v7mtp2gbfi1dk5376sstqu0oss.apps.googleusercontent.com"
 		data-context="signin"
 		data-ux_mode="popup"
-		data-login_uri="<?php echo pathinfo(htmlspecialchars($_SERVER["PHP_SELF"]), PATHINFO_DIRNAME); ?>/googleSignin.php"
+		data-login_uri="<?php
+		 echo pathinfo(htmlspecialchars($_SERVER["PHP_SELF"]), PATHINFO_DIRNAME); 
+		 ?>/googleSignin.php<?php 
+		 if (isset($_GET["page"]) && $_GET["page"] == "main") echo "?page=main"
+		 ?>"
 		data-auto_prompt="false">
 	</div>
 
@@ -107,7 +115,7 @@ Log in to OurCommunity<br />
 		<div class="or">or</div>
 	</div>
 	<br />
-	<a href="signup.php">Sign Up</a>
+	<a href="signup.php<?php if (isset($_GET["page"]) && $_GET["page"] == "main") echo "?page=main" ?>">Sign Up</a>
 	<br />
 </div>
 </main>

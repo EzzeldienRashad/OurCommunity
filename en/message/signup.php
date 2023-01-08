@@ -51,7 +51,11 @@ if (isset($_POST["submit"])) {
 				VALUES (?, ?, '" . password_hash($_POST["password"], PASSWORD_DEFAULT) . "', '" . $token . "')");
 				$stmt->execute([$_POST["name"], $_POST["email"]]);
 				$_SESSION["token"] = $token;
-				header("Location: index.php");
+				if (isset($_GET["page"]) && $_GET["page"] == "main") {
+					header("Location: ../");
+				} else {
+					header("Location: index.php");
+				}
 				exit;
 			}
 		}
@@ -82,7 +86,7 @@ if (isset($_POST["submit"])) {
 	<h2>Create a new account</h2>
 	<span class="header-note">It's quick and easy.</span>
 	<hr />
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); if (isset($_GET["page"]) && $_GET["page"] == "main") echo "?page=main" ?>">
 		<input type="text" name="name" placeholder="Full Name" autocomplete="name" style="<?php if (isset($_SESSION["nameErr"])) echo "border-color: red"; ?>" value="<?php if (isset($_SESSION["name"])) echo $_SESSION["name"]; ?>" />
 		<div id="nameErr" class="err"><?php if (isset($_SESSION["nameErr"])) {echo  $_SESSION["nameErr"]; unset($_SESSION["nameErr"]);} ?></div>
 		<input type="email" name="email" placeholder="email" autocomplete="email" style="<?php if (isset($_SESSION["emailErr"])) echo "border-color: red"; ?>" value="<?php if (isset($_SESSION["email"])) echo $_SESSION["email"]; ?>" />
@@ -94,7 +98,7 @@ if (isset($_POST["submit"])) {
 		</div>
 		<input type="submit" name="submit" class="submit" value="Sign Up" />
 	</form>
-	<a class="login-redirect" href="login.php">Already have an account?</a>
+	<a class="login-redirect" href="login.php<?php if (isset($_GET["page"]) && $_GET["page"] == "main") echo "?page=main" ?>">Already have an account?</a>
 </div>
 
 </main>

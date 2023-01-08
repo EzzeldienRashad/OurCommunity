@@ -24,7 +24,11 @@ if (!$cCsrfToken || !$pCsrfToken || $cCsrfToken != $pCsrfToken) {
 			$_SESSION["token"] = $token;
 			setcookie("name", $info["name"], time() + 86400 * 30, "/");
 			setcookie("token", $token, time() + 86400 * 30, "/");
-			header("Location: index.php");
+			if (isset($_GET["page"]) && $_GET["page"] == "main") {
+				header("Location: ../");
+			} else {
+    			header("Location: index.php");
+            }
 			exit;
         } else {
             $username = (strlen($payload["given_name"] . " " . $payload["family_name"]) <= 30) ? ($payload["given_name"] . " " . $payload["family_name"]) : $payload["given_name"];

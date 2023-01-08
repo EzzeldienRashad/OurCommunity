@@ -24,12 +24,28 @@ document.getElementsByClassName("menu")[0].addEventListener("click", function ()
     nav.classList.toggle("nav-show");
     setTimeout(function () {
         if (nav.classList.contains("nav-show")) {
-            document.addEventListener("click", function hideNav() {
+            document.addEventListener("click", function hideNav(event) {
+                if (!event.target.closest(".nav-show")) {    
                     nav.classList.remove("nav-show");
                     document.removeEventListener("click", hideNav);
+                }
             });
         }
     }, 0);
+});
+//user login menu
+let loginMenuButton = document.getElementsByClassName("login-menu-button")[0];
+let loginMenu = document.getElementsByClassName("login-menu")[0];
+loginMenuButton.addEventListener("click", function () {
+    loginMenu.classList.toggle("hidden");
+});
+document.addEventListener("click", function (event) {
+    if (!loginMenu.classList.contains("hidden") &&
+        !event.target.closest(".login-menu") &&
+        !event.target.closest(".login-menu-button")) {
+        loginMenu.classList.add("hidden");
+        console.log(event.target);
+    }
 });
 //slider
 if (document.getElementById("slider")) {

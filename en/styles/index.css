@@ -58,11 +58,17 @@ header nav {
     text-align: left;
     padding: 0px 45px;
     background-color:  rgb(255, 95, 11);
+    display: flex;
+    gap: 5px;
+    position: relative;
+    z-index: 5;
 }
 header nav a, .disabled {
     display: inline-block;
     color: white;
-    padding: 20px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
     text-align: center;
     transition-duration: .25s;
 }
@@ -75,6 +81,55 @@ header nav a:hover, .disabled {
 }
 .menu-cont {
     display: none;
+}
+header nav button {
+    margin-left: auto;
+    display: inline-block;
+    text-align: center;
+    transition-duration: .25s;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+header nav i {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+}
+.login-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    z-index: 100;
+    width: 200px;
+}
+.hidden {
+    display: none;
+}
+.login-menu * {
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    line-height: 100%;
+    color: white;
+    transition-duration: .25s;
+    font-size: 20px;
+    cursor: pointer;
+}
+.login-menu > *:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+.login-menu *:hover * {
+    color: black;
 }
 /**************** section 1 *******************/
 main {
@@ -481,8 +536,14 @@ h1 {
         padding: 0px 15px;
     }
     header nav a, .disabled {
-        padding: 10px;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 10px;
         font-size: 13px;
+    }
+    header nav button img {
+        width: 25px;
+        height: 25px;
     }
     .logo-header img {
         width: 70px;
@@ -593,9 +654,6 @@ h1 {
     .logo-header {
         padding: 10px 15px;
     }
-    header nav a, .disabled {
-        width: 100px;
-    }
     .menu-cont {
         display: block;
     }
@@ -613,6 +671,7 @@ h1 {
         margin: 5px 0;
     }
     header nav {
+        flex-direction: column;
         padding: 0px 5px;
         width: 0;
         position: absolute;
@@ -620,15 +679,23 @@ h1 {
         left: 25px;
         z-index: 1000;
         padding: 0;
-        transition-duration: .5s;
         overflow: hidden;
     }
     .nav-show {
         width: 100px;
+        overflow: visible;
+    }
+    header nav a, .disabled, header nav button {
+        white-space: nowrap;
     }
     header nav a:hover, .disabled {
         background-color: #f2f2f2;
-    }    
+    }   
+    .login-menu {
+        right: auto;
+        left: 0;
+        width: auto;
+    } 
     .logo-header img {
         width: 50px;
         height: 40px;

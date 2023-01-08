@@ -19,10 +19,14 @@ jsonFile (if it is a link to another page)
 
 **If you downloaded this project, then do the following:
 1-php composer.phar update
-2-make database b16_32390973_OurCommunity password 1e2z3z4e5l@G with tables:
+2-make database b16_32390973_OurCommunity user b16_32390973 password 1e2z3z4e5l@G with tables:
 Groups: id, groupName, groupPassword, groupToken, owner
 Comments: id, name, body, date, lovers, comments, groupName
 Users: id, name, email, password, token
+The Code:
+create table b16_32390973_OurCommunity.Groups (id integer primary key auto_increment, groupName varchar(30), groupPassword text, groupToken text, owner varchar(30));
+create table b16_32390973_OurCommunity.Comments (id int primary key auto_increment, name varchar(30), body mediumtext, date text, lovers text, comments mediumtext, groupName varchar(30));
+create table b16_32390973_OurCommunity.Users (id int primary key auto_increment, name varchar(30), email varchar(320), password text, token text);
 3-When you upload, make sure filters are truned off in filezilla the first time you upload.
 
 ** to upload, replace:
