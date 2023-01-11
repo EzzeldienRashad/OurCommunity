@@ -100,7 +100,9 @@ if (isset($_GET["deleteC2cParentId"]) && isset($_GET["deleteC2cId"])) {
 	<meta name="description" content="OurCommunity, a community for meeting friends, sending messages, playing, etc....">
 	<meta name="keywords" content="community, chat, message friends, meeting, main page, playing games" />
 	<script type="text/javascript" src="scripts/header.js" defer></script>
-	<script src="https://kit.fontawesome.com/5cf0e9fc67.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../../assets/fontawesome/css/fontawesome.css"/>
+    <link rel="stylesheet" href="../../assets/fontawesome/css/brands.css"/>
+    <link rel="stylesheet" href="../../assets/fontawesome/css/solid.css"/>
 	<link rel="icon" href="../../images/mainImages/logo.webp">
 	<link rel="stylesheet" href="styles/index.css" />
 	<link rel="stylesheet" href="styles/header-footer.css" />
@@ -111,7 +113,7 @@ if (isset($_GET["deleteC2cParentId"]) && isset($_GET["deleteC2cId"])) {
 <body>
 <header>
 <span class="decoration"></span>
-<h1>OurCommunity</h1>
+<a href="../"><h1>OurCommunity</h1></a>
 <div class="hello">Hello, <span><?php echo $name; ?></span>!</div>
 <div class="menu">
 	<span></span>

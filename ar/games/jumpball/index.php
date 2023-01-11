@@ -42,7 +42,9 @@ if (isset($_POST["logout"])) {
     <meta name="author" content="عزالدين رشاد" />
 	<meta name="description" content="موقع مجتمعنا للعب ومقابلة اﻷصدقاء وغير ذلك الكثير">
 	<meta name="keywords" content="مجتمع, شات, مراسلة اﻷصدقاء, مجموعات, ألعاب" />
-    <script src="https://kit.fontawesome.com/5cf0e9fc67.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../../assets/fontawesome/css/fontawesome.css"/>
+    <link rel="stylesheet" href="../../../assets/fontawesome/css/brands.css"/>
+    <link rel="stylesheet" href="../../../assets/fontawesome/css/solid.css"/>
 	<script type="text/javascript" src="../../scripts/index.js" defer></script>
 	<script type="text/javascript" src="index.js" defer></script>
 	<link rel="icon" href="../../../images/mainImages/logo.webp">

@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
 <main>
-<h1>مجتمعنا</h1>
+<a href="../"><h1>مجتمعنا</h1></a>
 <div class="form">
 	إنشاء حساب<br />
 	<h2>أنشئ حسابًا جديدًا</h2>

@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
 <main>
-<h1>OurCommunity</h1>
+<a href="../"><h1>OurCommunity</h1></a>
 <div class="form">
 	Sign up to OurCommunity<br />
 	<h2>Create a new account</h2>

@@ -1,6 +1,4 @@
-add link to main page in footer
 add google one tap
-add a link in the message header to index.php
 add facebook login
 add phone login
 secure the website!

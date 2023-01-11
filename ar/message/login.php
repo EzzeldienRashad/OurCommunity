@@ -71,7 +71,7 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
 <main>
-<h1>مجتمعنا</h1>
+<a href="../"><h1>مجتمعنا</h1></a>
 <div class="form">
 تسجيل الدخول<br />
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); if (isset($_GET["page"]) && $_GET["page"] == "main") echo "?page=main" ?>">

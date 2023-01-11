@@ -43,7 +43,7 @@ if (isset($_POST["loginGroupSubmit"])) {
 </head>
 <header>
 <span class="decoration"></span>
-<h1>OurCommunity</h1>
+<a href="../"><h1>OurCommunity</h1></a>
 <div class="hello">Hello, <span><?php echo $name; ?></span>!</div>
 <div class="menu">
 	<span></span>
