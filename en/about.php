@@ -48,7 +48,6 @@ if (isset($_POST["logout"])) {
     <link rel="stylesheet" href="../assets/fontawesome/css/solid.css"/>
 	<link rel="icon" href="../images/mainImages/logo.webp">
 	<link rel="stylesheet" href="styles/index.css" />
-	<link rel="stylesheet" href="styles/about.css" />
 </head>
 <body>
     <header>

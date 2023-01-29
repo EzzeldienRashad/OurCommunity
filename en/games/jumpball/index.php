@@ -113,7 +113,7 @@ if (isset($_POST["logout"])) {
                     PLAY AGAIN!!!
                 </button>
             </div>
-            <i class="fa-solid fa-volume-xmark fa-lg music"></i>
+            <i class="fa-solid fa-volume-xmark fa-lg audio"></i>
         </div>
     </div>
     </main>

@@ -1,8 +1,7 @@
-addEventListener("load", function () {
-
 //show links on menu click
 let nav = document.getElementsByTagName("nav")[0];
 document.getElementsByClassName("menu")[0].addEventListener("click", function () {
+    console.log(1);
     nav.classList.toggle("nav-show");
     setTimeout(function () {
         if (nav.classList.contains("nav-show")) {
@@ -42,12 +41,10 @@ if (document.getElementsByClassName("logo-header")[0]) {
     }
 }
 if (document.querySelector("header nav")) {
-    addEventListener("load", function () {
-        if (document.documentElement.offsetWidth < 820) {
-            document.querySelector("header nav").style.top = 
-                document.getElementsByClassName("menu")[0].getBoundingClientRect().bottom + 5 + "px";
-        }
-    });
+    if (document.documentElement.offsetWidth < 820) {
+        document.querySelector("header nav").style.top = 
+            document.getElementsByClassName("menu")[0].getBoundingClientRect().bottom + 5 + "px";
+    }
 }
 //slider
 if (document.getElementById("slider")) {
@@ -126,5 +123,3 @@ if (document.getElementById("faq")) {
         })
     }
 }
-
-});

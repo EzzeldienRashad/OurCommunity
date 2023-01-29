@@ -1,9 +1,8 @@
 using composer - google apiclient
 loadItems.php:
 $jsonFile: place of the json file
-$imagesFolder: place of the images files
-$isLink: are the items links or just images
 $lang: language, either ar or en
+$root: Root direcotry
 
 json files:
 hasTitle?
@@ -27,7 +26,7 @@ The Code:
 create table b16_32390973_OurCommunity.Groups (id integer primary key auto_increment, groupName varchar(30), groupPassword text, groupToken text, owner varchar(30));
 create table b16_32390973_OurCommunity.Comments (id int primary key auto_increment, name varchar(30), body mediumtext, date text, lovers text, comments mediumtext, groupName varchar(30));
 create table b16_32390973_OurCommunity.Users (id int primary key auto_increment, name varchar(30), email varchar(320), password text, token text);
-3-When you upload, make sure filters are truned off in filezilla the first time you upload.
+3-When you upload, make sure filters are truned off in filezilla the first time you upload except for .git, .workspace, .gitignore, ignore, composer.json, composer.phar, composer.lock
 
 ** to upload, replace:
 localhsot , sql308.byethost16.com

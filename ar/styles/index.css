@@ -691,8 +691,8 @@ h1 {
         background-color: #f2f2f2;
     }   
     .login-menu {
-        right: auto;
-        left: 0;
+        right: 0;
+        left: auto;
         width: auto;
     } 
     .logo-header img {

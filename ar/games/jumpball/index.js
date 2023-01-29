@@ -2,9 +2,6 @@ gameStarted = 0;
 document.getElementById("play").addEventListener("click", function play() {
 gameStarted = 1;
 document.getElementById("play").style.display = "none";
-if (musicPlaying) {
-    music.play();
-}
 //pollyfills
 window.requestAnimationFrame = window.requestAnimationFrame
     || window.mozRequestAnimationFrame
@@ -18,31 +15,32 @@ window.cancelAnimationFrame = window.cancelAnimationFrame
 
 //fixed values
 let minTimeBetweenCreations, maxTimeBetweenCreations, maxWallHeight, minWallHeight, wallsSpeed, ballTransitionDuration, wallsPerLevel;
-minTimeBetweenCreations = 2300;
-maxTimeBetweenCreations = 3000;
 minJumpHeight = 1.1;
 maxJumpHeight = 1.5;
+wallsSpeed = 3;
 wallsPerLevel = 10;
 if (document.body.clientWidth <= 900) {
+    minTimeBetweenCreations = 1700;
+    maxTimeBetweenCreations = 2400;
     ballTransitionDuration = 2000;
     maxWallHeight = 100;
     minWallHeight = 25;
-    wallsSpeed = 2;
 } else {
+    minTimeBetweenCreations = 2300;
+    maxTimeBetweenCreations = 3000;
     ballTransitionDuration = 2400;
     maxWallHeight = 200;
     minWallHeight = 50;
-    wallsSpeed = 3;
 }
 let hearts = 3;
-let levelsColors = ["green", "cyan", "deepskyblue", "dodgerblue", "royalblue", "blue", "mediumslateblue", "purple", "red"];
+let levelsColors = ["yellowgreen", "cyan", "deepskyblue", "dodgerblue", "royalblue", "blue", "mediumslateblue", "purple", "red"];
 let frame = document.getElementsByClassName("frame")[0];
 let backgrounds = document.querySelectorAll(".frame-cont img");
 //changable values
 let lost = false;
 let score = 0;
 let level = 1;
-let wallColor = "green";
+let wallColor = "yellowgreen";
 let wallsTimeout;
 //ball
 let ball = document.createElement("div");
@@ -154,11 +152,11 @@ function moveWalls() {
 }
 
 function moveBall(event) {
-    if (lost || event.target.classList.contains("music")) return;
+    if (lost || event.target.classList.contains("audio")) return;
     frame.removeEventListener("click", moveBall);
     ball.style.transitionTimingFunction = "ease-out";
     ball.style.bottom = maxWallHeight * (Math.random() * (maxJumpHeight - minJumpHeight) + minJumpHeight) + "px";
-    if (musicPlaying) bounce.play();
+    if (audioPlaying) bounce.play();
     setTimeout(function () {
         if (lost) return;
         ball.style.transitionTimingFunction = "ease-in";
@@ -168,7 +166,6 @@ function moveBall(event) {
 }
 
 function stop() {
-    music.pause();
     cancelAnimationFrame(moveWallsAF);
     clearTimeout(wallsTimeout);
     frame.removeEventListener("click", moveBall);
@@ -176,7 +173,6 @@ function stop() {
 }
 
 function continuePlaying() {
-    if (musicPlaying) music.play();
     moveWallsAF = requestAnimationFrame(moveWalls);
     createWalls();
     frame.addEventListener("click", moveBall);
@@ -184,7 +180,7 @@ function continuePlaying() {
 }
 
 function lose() {
-    if (musicPlaying) loseSound.play();
+    if (audioPlaying) loseSound.play();
     stop();
     lost = true;
     setTimeout(function () {
@@ -202,7 +198,6 @@ function lose() {
         } else {
             document.getElementById("replay").querySelector("button span").innerHTML = score;
             document.getElementById("replay").style.display = "block";
-            music.muted = true;
         }
     }, 1000);
 }
@@ -213,42 +208,31 @@ document.querySelector("#replay button").addEventListener("click", function () {
 });
 
 });
-//add music
-musicPlaying = false;
-let music = document.createElement("audio");
-music.setAttribute("src", "../../../music/jumpball.mp3");
-music.setAttribute("autoplay", true);
-music.setAttribute("loop", true);
-music.pause();
-let speaker = document.getElementsByClassName("music")[0];
-if (getCookie("music") == "on") {
+//add audio
+audioPlaying = false;
+let speaker = document.getElementsByClassName("audio")[0];
+if (getCookie("audio") == "on") {
     speaker.classList.remove("fa-volume-xmark");
     speaker.classList.add("fa-volume-high");
-    musicPlaying = true;
+    audioPlaying = true;
 }
 speaker.addEventListener("click", function () {
     if (speaker.classList.contains("fa-volume-high")) {
         speaker.classList.remove("fa-volume-high");
         speaker.classList.add("fa-volume-xmark");
-        musicPlaying = false;
-        document.cookie = "music=off; max-age=" + 60 * 60 * 24 * 30;
+        audioPlaying = false;
+        document.cookie = "audio=off; max-age=" + 60 * 60 * 24 * 30;
     } else {
         speaker.classList.remove("fa-volume-xmark");
         speaker.classList.add("fa-volume-high");
-        musicPlaying = true;
-        document.cookie = "music=on; max-age=" + 60 * 60 * 24 * 30;
-    }
-    if (musicPlaying && gameStarted) {
-        music.play();
-    } else if (!musicPlaying && gameStarted) {
-        music.pause();
-        music.currentTime = 0;
+        audioPlaying = true;
+        document.cookie = "audio=on; max-age=" + 60 * 60 * 24 * 30;
     }
 });
 let bounce = document.createElement("audio");
-bounce.setAttribute("src", "../../../music/bounce.mp3");
+bounce.setAttribute("src", "../../../audio/bounce.mp3");
 let loseSound = document.createElement("audio");
-loseSound.setAttribute("src", "../../../music/lose.mp3");
+loseSound.setAttribute("src", "../../../audio/lose.mp3");
 
 //main functions
 function getCookie(name) {

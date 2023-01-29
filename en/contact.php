@@ -140,7 +140,7 @@ if (isset($_POST["logout"])) {
                 </tr>
                 <tr>
                     <th>Email :</th>
-                    <td>There's no one to answer emails, so.....</td>
+                    <td>There's no one to answer emails till now, so.....</td>
                 </tr>
                 <tr>
                     <th>Address :</th>

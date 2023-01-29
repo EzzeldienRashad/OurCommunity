@@ -80,7 +80,7 @@
     font-weight: bold;
     font-size: 20px;
 }
-.music {
+.audio {
     position: absolute;
     bottom: 20px;
     right: 10px;
@@ -90,10 +90,11 @@
 }
 @media only screen and (max-width: 900px) {
     .ball {
-        padding: 12px;
+        padding: 10px;
+        left: 10px;
     }
     .wall {
-        width: 17px;
+        width: 15px;
     }
 }
 @media only screen and (max-width: 560px) {

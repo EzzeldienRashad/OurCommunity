@@ -48,7 +48,6 @@ if (isset($_POST["logout"])) {
     <link rel="stylesheet" href="../assets/fontawesome/css/solid.css"/>
 	<link rel="icon" href="../images/mainImages/logo.webp">
 	<link rel="stylesheet" href="styles/index.css" />
-	<link rel="stylesheet" href="styles/about.css" />
 </head>
 <body>
     <header>
@@ -122,7 +121,7 @@ if (isset($_POST["logout"])) {
             <a href="../en" class="fleft" hreflang="en" lang="en">English</a>
         </div>
         <div class="footer-info">
-            حقوق النشر محفوظة لموقع مجتمعنا @ 2022 - <?php echo date("Y") ?>
+            جميع الحقوق محفوظة لموقع مجتمعنا @ 2022 - <?php echo date("Y") ?>
         </div>
     </footer>
 </body>

@@ -113,7 +113,7 @@ if (isset($_POST["logout"])) {
                     اعادة اللعب
                 </button>
             </div>
-            <i class="fa-solid fa-volume-xmark fa-lg music"></i>
+            <i class="fa-solid fa-volume-xmark fa-lg audio"></i>
         </div>
     </div>
 
@@ -125,7 +125,7 @@ if (isset($_POST["logout"])) {
             <a href="../../../en" class="fleft" hreflang="en" lang="en">English</a>
         </div>
         <div class="footer-info">
-            حقوق النشر محفوظة لموقع مجتمعنا @ 2022 - <?php echo date("Y") ?>
+            جميع الحقوق محفوظة لموقع مجتمعنا @ 2022 - <?php echo date("Y") ?>
         </div>
     </footer>
 </body>
