@@ -40,7 +40,7 @@ h3 {
 .images img {
     width: 50vw;
     margin: 10px 50px;
-    filter: brightness(300%);
+    filter: brightness(150%);
 }
 .overlay {
     position: absolute;
